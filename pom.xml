@@ -14,7 +14,7 @@
     <!-- general settings -->
     <!-- ++++++++++++++++ -->
     <packaging>jar</packaging>
-    <name>chr util</name>
+    <name>chrlembeck util</name>
     <url>https://github.com/chrlembeck/util</url>
 
     <!-- ++++++++++ -->
@@ -66,6 +66,11 @@
                     <show>private</show>
                     <nohelp>false</nohelp>
                     <sourcepath>src/main/java</sourcepath>
+                    <charset>UTF-8</charset>
+                    <defaultAuthor>Christoph Lembeck</defaultAuthor>
+                    <failOnError>true</failOnError>
+                    <level>private</level>
+                    <quiet>true</quiet>
                 </configuration>
                 <executions>
                     <execution>
@@ -114,11 +119,17 @@
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-project-info-reports-plugin</artifactId>
+                <version>2.9</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-pmd-plugin</artifactId>
                 <version>3.8</version>
                 <configuration>
                     <verbose>true</verbose>
-                    <failurePriority>2</failurePriority>
+                    <failurePriority>5</failurePriority>
                     <excludes>
                         <exclude>**/generated/*.java</exclude>
                     </excludes>
