@@ -7,14 +7,14 @@
     <!-- artifact description -->
     <!-- ++++++++++++++++++++ -->
     <groupId>de.chrlembeck</groupId>
-    <artifactId>util</artifactId>
+    <artifactId>chr-util</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
     <!-- ++++++++++++++++ -->
     <!-- general settings -->
     <!-- ++++++++++++++++ -->
     <packaging>jar</packaging>
-    <name>chrlembeck util</name>
+    <name>chr util</name>
     <url>https://github.com/chrlembeck/util</url>
 
     <!-- ++++++++++ -->
