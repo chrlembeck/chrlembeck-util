@@ -153,13 +153,6 @@
                         </goals>
                     </execution>
                 </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>de.chrlembeck</groupId>
-                        <artifactId>chrlembeck-build-tools</artifactId>
-                        <version>0.1-SNAPSHOT</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
