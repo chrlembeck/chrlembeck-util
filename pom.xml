@@ -82,22 +82,6 @@
                 </executions>
             </plugin>
 
-            <!-- sign jars with gpg -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-gpg-plugin</artifactId>
-                <version>1.6</version>
-                <executions>
-                    <execution>
-                        <id>sign-artifacts</id>
-                        <phase>verify</phase>
-                        <goals>
-                            <goal>sign</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
             <!-- run the junit tests on build -->
             <plugin>
                 <artifactId>maven-surefire-plugin</artifactId>
@@ -161,8 +145,38 @@
     </build>
 
     <profiles>
+        <profile>
+            <id>pgpsign</id>
+            <activation>
+                <property>
+                    <name>gpgsign</name>
+                    <value>true</value>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <!-- sign jars with gpg -->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
         <!-- run clover: mvn -Dclover=true test site -->
         <profile>
+            <id>clover</id>
             <activation>
                 <file>
                     <exists>src/main/java</exists>
