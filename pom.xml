@@ -38,6 +38,26 @@
             <version>5.0.0-RC3</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>4.12.0-RC3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>1.0.0-RC3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -122,7 +142,7 @@
                         <excludeRoot>target/clover</excludeRoot>
                     </excludeRoots>
                     <rulesets>
-                        <ruleset>de/chrlembeck/buildtools/pmd/pmd-rules.xml</ruleset>
+                        <ruleset>src/test/resources/pmd/pmd-rules.xml</ruleset>
                     </rulesets>
                     <printFailingErrors>true</printFailingErrors>
                 </configuration>
@@ -144,12 +164,22 @@
         </plugins>
     </build>
 
+    <reporting>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jxr-plugin</artifactId>
+                <version>2.5</version>
+            </plugin>
+        </plugins>
+    </reporting>
+
     <profiles>
         <profile>
-            <id>pgpsign</id>
+            <id>runpgp</id>
             <activation>
                 <property>
-                    <name>gpgsign</name>
+                    <name>gpgsign-chrlembeck</name>
                     <value>true</value>
                 </property>
             </activation>
@@ -176,7 +206,7 @@
 
         <!-- run clover: mvn -Dclover=true test site -->
         <profile>
-            <id>clover</id>
+            <id>runclover</id>
             <activation>
                 <file>
                     <exists>src/main/java</exists>
