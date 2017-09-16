@@ -8,15 +8,15 @@ public class ToStringWrapperTest {
     @Test
     public void testToString() {
         final ToStringWrapper<String> wrapper = new ToStringWrapper<String>("abcde",
-                s -> new StringBuilder(s).reverse().toString());
+                str -> new StringBuilder(str).reverse().toString());
         Assertions.assertEquals("edcba", wrapper.toString());
     }
 
     @Test
     public void testGetObject() {
-        final String st = "abcde";
-        final ToStringWrapper<String> wrapper = new ToStringWrapper<String>(st,
-                s -> new StringBuilder(s).reverse().toString());
-        Assertions.assertSame(st, wrapper.getObject());
+        final String object = "abcde";
+        final ToStringWrapper<String> wrapper = new ToStringWrapper<String>(object,
+                str -> new StringBuilder(str).reverse().toString());
+        Assertions.assertSame(object, wrapper.getObject());
     }
 }
