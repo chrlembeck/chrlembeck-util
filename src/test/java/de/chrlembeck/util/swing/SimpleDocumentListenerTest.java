@@ -13,9 +13,20 @@ import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 
+/**
+ * Tests für den SimpleDocumentListener
+ *
+ * @author Christoph Lembeck
+ */
 @RunWith(JUnitPlatform.class)
 public class SimpleDocumentListenerTest {
 
+    /**
+     * Prüft, ob der Listener bei den drei Operationen auf Document-Objekten aufgerufen wird.
+     * 
+     * @throws Exception
+     *             Falls es einen Fehler im Test gibt.
+     */
     @Test
     public void testListener() throws Exception {
         final DefaultStyledDocument doc = new DefaultStyledDocument();
@@ -39,27 +50,54 @@ public class SimpleDocumentListenerTest {
         consumer.reset();
     }
 
+    /**
+     * Registirert das Aufrufen der accept-Methode.
+     *
+     * @author Christoph Lembeck
+     */
     static class TestConsumer implements Consumer<DocumentEvent> {
 
+        /**
+         * true, falls die accept-Methode aufgerufen wurde.
+         */
         private boolean called;
 
+        /**
+         * Referenz auf das zuletzt an den Listener übergebene Event.
+         */
         private DocumentEvent lastEvent;
 
+        /**
+         * {@inheritDoc}
+         */
         @Override
         public void accept(final DocumentEvent event) {
             called = true;
             this.lastEvent = event;
         }
 
+        /**
+         * Gibt zurück, ob die accept-Methode seit dem letzten Reset aufgerufen wurde.
+         * 
+         * @return true, falls accept aufgerufen wurde, sonst false.
+         */
         public boolean wasCalled() {
             return called;
         }
 
+        /**
+         * Setzt den Listener wieder in den Anfangszustand zurück.
+         */
         public void reset() {
             called = false;
             lastEvent = null;
         }
 
+        /**
+         * Gibt das zuletzt an den Listener übergebene Event zurück.
+         * 
+         * @return Das Letzte erhaltene DocumentEvent.
+         */
         public DocumentEvent getLastEvent() {
             return lastEvent;
         }

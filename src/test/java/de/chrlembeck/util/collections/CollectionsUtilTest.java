@@ -6,8 +6,16 @@ import java.util.TreeSet;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests für die CollectionsUtil-Klasse.
+ *
+ * @author Christoph Lembeck
+ */
 public class CollectionsUtilTest {
 
+    /**
+     * Testet die isNullOrEmpty-Methode.
+     */
     @Test
     public void testNullOrEmpty() {
         Assertions.assertTrue(CollectionsUtil.isNullOrEmpty(null));

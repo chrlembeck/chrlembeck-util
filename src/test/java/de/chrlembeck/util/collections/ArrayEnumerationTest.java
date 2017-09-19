@@ -5,8 +5,16 @@ import java.util.NoSuchElementException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+/**
+ * Tests für die ArrayEnumeration
+ *
+ * @author Christoph Lembeck
+ */
 public class ArrayEnumerationTest {
 
+    /**
+     * Testet die Enumeration mit zwei Elementen.
+     */
     @Test
     public void testArrayEnumeration() {
         final String[] strings = new String[] { "A", "B" };
