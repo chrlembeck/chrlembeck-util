@@ -89,41 +89,41 @@ public class IconTest {
                     "ZoomFit");
             addIcon(panel, PaintedIcons.createZoomFit(32, Color.LIGHT_GRAY, 2.5f, Color.WHITE, Color.GREEN, 2f),
                     "ZoomFit");
-            addIcon(panel, PaintedIcons.createNavigateFirst(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY), "NavigateFirst");
-            addIcon(panel, PaintedIcons.createNavigatePrevious(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY),
+            addIcon(panel, PaintedIcons.createNavigateSectionStart(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY), "NavigateFirst");
+            addIcon(panel, PaintedIcons.createNavigateBackward(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY),
                     "NavigatePrevios");
-            addIcon(panel, PaintedIcons.createNavigateNext(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY), "NavigateNext");
-            addIcon(panel, PaintedIcons.createNavigateLast(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY), "NavigateLast");
-            addIcon(panel, PaintedIcons.createNavigateFirst(24, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateFirst");
-            addIcon(panel, PaintedIcons.createNavigatePrevious(24, Color.BLACK, 2, Color.LIGHT_GRAY),
+            addIcon(panel, PaintedIcons.createNavigateForward(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY), "NavigateNext");
+            addIcon(panel, PaintedIcons.createNavigateSectionEnd(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY), "NavigateLast");
+            addIcon(panel, PaintedIcons.createNavigateSectionStart(24, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateFirst");
+            addIcon(panel, PaintedIcons.createNavigateBackward(24, Color.BLACK, 2, Color.LIGHT_GRAY),
                     "NavigatePrevios");
-            addIcon(panel, PaintedIcons.createNavigateNext(24, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateNext");
-            addIcon(panel, PaintedIcons.createNavigateLast(24, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateLast");
-            addIcon(panel, PaintedIcons.createNavigateFirst(32, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateFirst");
-            addIcon(panel, PaintedIcons.createNavigatePrevious(32, Color.BLACK, 2, Color.LIGHT_GRAY),
+            addIcon(panel, PaintedIcons.createNavigateForward(24, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateNext");
+            addIcon(panel, PaintedIcons.createNavigateSectionEnd(24, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateLast");
+            addIcon(panel, PaintedIcons.createNavigateSectionStart(32, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateFirst");
+            addIcon(panel, PaintedIcons.createNavigateBackward(32, Color.BLACK, 2, Color.LIGHT_GRAY),
                     "NavigatePrevios");
-            addIcon(panel, PaintedIcons.createNavigateNext(32, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateNext");
-            addIcon(panel, PaintedIcons.createNavigateLast(32, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateLast");
-            addIcon(panel, PaintedIcons.createNavigateFirstDouble(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY),
+            addIcon(panel, PaintedIcons.createNavigateForward(32, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateNext");
+            addIcon(panel, PaintedIcons.createNavigateSectionEnd(32, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateLast");
+            addIcon(panel, PaintedIcons.createNavigateDocumentStart(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY),
                     "NavigateFirst");
-            addIcon(panel, PaintedIcons.createNavigatePreviousDouble(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY),
+            addIcon(panel, PaintedIcons.createNavigateFastBackward(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY),
                     "NavigatePrevios");
             addIcon(panel, PaintedIcons.createNavigateNextDouble(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY),
                     "NavigateNext");
-            addIcon(panel, PaintedIcons.createNavigateLastDouble(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY),
+            addIcon(panel, PaintedIcons.createNavigateDocumentEnd(16, Color.BLACK, 1.5f, Color.LIGHT_GRAY),
                     "NavigateLast");
-            addIcon(panel, PaintedIcons.createNavigateFirstDouble(24, Color.BLACK, 2, Color.LIGHT_GRAY),
+            addIcon(panel, PaintedIcons.createNavigateDocumentStart(24, Color.BLACK, 2, Color.LIGHT_GRAY),
                     "NavigateFirst");
-            addIcon(panel, PaintedIcons.createNavigatePreviousDouble(24, Color.BLACK, 2, Color.LIGHT_GRAY),
+            addIcon(panel, PaintedIcons.createNavigateFastBackward(24, Color.BLACK, 2, Color.LIGHT_GRAY),
                     "NavigatePrevios");
             addIcon(panel, PaintedIcons.createNavigateNextDouble(24, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateNext");
-            addIcon(panel, PaintedIcons.createNavigateLastDouble(24, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateLast");
-            addIcon(panel, PaintedIcons.createNavigateFirstDouble(32, Color.BLACK, 2, Color.LIGHT_GRAY),
+            addIcon(panel, PaintedIcons.createNavigateDocumentEnd(24, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateLast");
+            addIcon(panel, PaintedIcons.createNavigateDocumentStart(32, Color.BLACK, 2, Color.LIGHT_GRAY),
                     "NavigateFirst");
-            addIcon(panel, PaintedIcons.createNavigatePreviousDouble(32, Color.BLACK, 2, Color.LIGHT_GRAY),
+            addIcon(panel, PaintedIcons.createNavigateFastBackward(32, Color.BLACK, 2, Color.LIGHT_GRAY),
                     "NavigatePrevios");
             addIcon(panel, PaintedIcons.createNavigateNextDouble(32, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateNext");
-            addIcon(panel, PaintedIcons.createNavigateLastDouble(32, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateLast");
+            addIcon(panel, PaintedIcons.createNavigateDocumentEnd(32, Color.BLACK, 2, Color.LIGHT_GRAY), "NavigateLast");
             frame.pack();
             frame.setVisible(true);
         });

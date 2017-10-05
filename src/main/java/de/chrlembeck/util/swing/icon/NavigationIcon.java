@@ -27,44 +27,44 @@ public class NavigationIcon implements Icon {
     public enum Direction {
 
         /**
-         * Entspricht der Navigation an den Anfang.
+         * Entspricht der Navigation an den Anfang eines Dokuments.
          */
-        FIRST,
+        DOCUMENT_START,
 
         /**
-         * Entspricht der Navigation in schnellen Schritten an den Anfang.
+         * Entspricht der Navigation an den Anfang eines Abschnitts.
          */
-        FIRST_DOUBLE,
+        SECTION_START,
 
         /**
-         * Navigation zum Vorgänger.
+         * Navigation um mehrere Schritte zurück.
          */
-        PREVIOUS,
+        FAST_BACKWARD,
 
         /**
-         * Schnelle Navigation in Richtung des Vorgängers.
+         * Navigation um einen Schritt zurück.
          */
-        PREVIOUS_DOUBLE,
+        BACKWARD,
 
         /**
-         * Navigation zum Nachfolger.
+         * Navigation um einen Schritt vor.
          */
-        NEXT,
+        FORWARD,
 
         /**
-         * Schnelle Navigation in Richtung des Nachfolgers.
+         * Navigation um mehrere Schritte vor.
          */
-        NEXT_DOUBLE,
+        FAST_FORWARD,
 
         /**
-         * Navigation zum Ende.
+         * Entspricht der Navigation an das Ende eines Abschnitts.
          */
-        LAST,
+        SECTION_END,
 
         /**
-         * Schnelle Navigation zum Ende.
+         * Entspricht der Navigation an das Ende des Dokuments.
          */
-        LAST_DOUBLE
+        DOCUMENT_END
     }
 
     /**
@@ -130,19 +130,19 @@ public class NavigationIcon implements Icon {
         float yTop = halfSize - triangleHeight / 2;
         float yBottom = halfSize + triangleHeight / 2;
         float triangleWidth = (size - 2 * lineThickness) / 2f - lineThickness;
-        if (direction == Direction.FIRST_DOUBLE || direction == Direction.PREVIOUS_DOUBLE) {
+        if (direction == Direction.DOCUMENT_START || direction == Direction.FAST_BACKWARD) {
             final Line2D line = new Line2D.Double(lineThickness / 2, yTop, lineThickness / 2, yBottom);
             // line abstand abstand
             // | lineThickness | lineThickness/2 | dreieck | lineThickness/2 | dreieck
             final Path2D leftTriangle = new Path2D.Double(Path2D.WIND_NON_ZERO, 3);
-            float xOffset = direction == Direction.FIRST_DOUBLE ? lineThickness : 0;
+            float xOffset = direction == Direction.DOCUMENT_START ? lineThickness : 0;
 
             leftTriangle.moveTo(xOffset + lineThickness, halfSize);
             leftTriangle.lineTo(xOffset + lineThickness + triangleWidth, yTop);
             leftTriangle.lineTo(xOffset + lineThickness + triangleWidth, yBottom);
             leftTriangle.closePath();
             final Path2D rightTriangle = new Path2D.Double(Path2D.WIND_NON_ZERO, 3);
-            xOffset = direction == Direction.FIRST_DOUBLE ? 0 : lineThickness;
+            xOffset = direction == Direction.DOCUMENT_START ? 0 : lineThickness;
             rightTriangle.moveTo(size - xOffset - lineThickness / 2 - triangleWidth, halfSize);
             rightTriangle.lineTo(size - xOffset - lineThickness / 2, yTop);
             rightTriangle.lineTo(size - xOffset - lineThickness / 2, yBottom);
@@ -151,24 +151,24 @@ public class NavigationIcon implements Icon {
             g2d.fill(leftTriangle);
             g2d.fill(rightTriangle);
             g2d.setPaint(borderPaint);
-            if (direction == Direction.FIRST_DOUBLE) {
+            if (direction == Direction.DOCUMENT_START) {
                 g2d.draw(line);
             }
             g2d.draw(leftTriangle);
             g2d.draw(rightTriangle);
         }
-        if (direction == Direction.LAST_DOUBLE || direction == Direction.NEXT_DOUBLE) {
+        if (direction == Direction.DOCUMENT_END || direction == Direction.FAST_FORWARD) {
             final Line2D line = new Line2D.Double(size - lineThickness / 2, yTop, size - lineThickness / 2, yBottom);
             // abstand abstand line
             // | lineThickness/2 | dreieck | lineThickness/2 | dreieck | lineThickness
             final Path2D leftTriangle = new Path2D.Double(Path2D.WIND_NON_ZERO, 3);
-            float xOffset = direction == Direction.LAST_DOUBLE ? 0 : lineThickness;
+            float xOffset = direction == Direction.DOCUMENT_END ? 0 : lineThickness;
             leftTriangle.moveTo(xOffset + lineThickness / 2, yTop);
             leftTriangle.lineTo(xOffset + lineThickness / 2 + triangleWidth, halfSize);
             leftTriangle.lineTo(xOffset + lineThickness / 2, yBottom);
             leftTriangle.closePath();
             final Path2D rightTriangle = new Path2D.Double(Path2D.WIND_NON_ZERO, 3);
-            xOffset = direction == Direction.LAST_DOUBLE ? lineThickness : 0;
+            xOffset = direction == Direction.DOCUMENT_END ? lineThickness : 0;
             rightTriangle.moveTo(size - xOffset - 2 * lineThickness / 2 - triangleWidth, yTop);
             rightTriangle.lineTo(size - xOffset - 2 * lineThickness / 2, halfSize);
             rightTriangle.lineTo(size - xOffset - 2 * lineThickness / 2 - triangleWidth, yBottom);
@@ -177,7 +177,7 @@ public class NavigationIcon implements Icon {
             g2d.fill(leftTriangle);
             g2d.fill(rightTriangle);
             g2d.setPaint(borderPaint);
-            if (direction == Direction.LAST_DOUBLE) {
+            if (direction == Direction.DOCUMENT_END) {
                 g2d.draw(line);
             }
             g2d.draw(leftTriangle);
@@ -187,10 +187,10 @@ public class NavigationIcon implements Icon {
         yBottom = size - lineThickness;
 
         triangleWidth = size - 3 * lineThickness;
-        if (direction == Direction.FIRST || direction == Direction.PREVIOUS) {
+        if (direction == Direction.SECTION_START || direction == Direction.BACKWARD) {
             final Line2D line = new Line2D.Double(lineThickness / 2, yTop, lineThickness / 2, yBottom);
             final Path2D triangle = new Path2D.Double();
-            final float xOffset = direction == Direction.FIRST ? lineThickness : 0;
+            final float xOffset = direction == Direction.SECTION_START ? lineThickness : 0;
             triangle.moveTo(xOffset + lineThickness * 3 / 2, halfSize);
             triangle.lineTo(xOffset + lineThickness * 3 / 2 + triangleWidth, yTop);
             triangle.lineTo(xOffset + lineThickness * 3 / 2 + triangleWidth, yBottom);
@@ -198,15 +198,15 @@ public class NavigationIcon implements Icon {
             g2d.setPaint(fillPaint);
             g2d.fill(triangle);
             g2d.setPaint(borderPaint);
-            if (direction == Direction.FIRST) {
+            if (direction == Direction.SECTION_START) {
                 g2d.draw(line);
             }
             g2d.draw(triangle);
         }
-        if (direction == Direction.LAST || direction == Direction.NEXT) {
+        if (direction == Direction.SECTION_END || direction == Direction.FORWARD) {
             final Line2D line = new Line2D.Double(size - lineThickness / 2, yTop, size - lineThickness / 2, yBottom);
             final Path2D triangle = new Path2D.Double();
-            final float xOffset = direction == Direction.LAST ? 0 : lineThickness;
+            final float xOffset = direction == Direction.SECTION_END ? 0 : lineThickness;
             triangle.moveTo(xOffset + lineThickness / 2, yTop);
             triangle.lineTo(xOffset + lineThickness / 2 + triangleWidth, halfSize);
             triangle.lineTo(xOffset + lineThickness / 2, yBottom);
@@ -214,7 +214,7 @@ public class NavigationIcon implements Icon {
             g2d.setPaint(fillPaint);
             g2d.fill(triangle);
             g2d.setPaint(borderPaint);
-            if (direction == Direction.LAST) {
+            if (direction == Direction.SECTION_END) {
                 g2d.draw(line);
             }
             g2d.draw(triangle);

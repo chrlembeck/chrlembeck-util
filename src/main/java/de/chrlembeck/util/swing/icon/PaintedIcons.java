@@ -136,43 +136,147 @@ public class PaintedIcons {
         return new ZoomIcon(size, Sign.ORIGINAL, borderPaint, borderThickness, fillPaint, signPaint, signThickness);
     }
 
-    public static Icon createNavigateFirst(final int size, final Paint paint, final float borderThickness,
+    /**
+     * Erstellt das Icon für die Navigation an den Anfang eines Abschnitts.
+     * 
+     * @param size
+     *            Größe des Icons in Pixeln.
+     * @param paint
+     *            Zeichenstil für den Rand des Icons.
+     * @param borderThickness
+     *            Linienbreite für das Zeichnen des Icons.
+     * @param fillPaint
+     *            Füllstil für das innere des Icons.
+     * @return Das erszeugte Icon.
+     */
+    public static Icon createNavigateSectionStart(final int size, final Paint paint, final float borderThickness,
             final Paint fillPaint) {
-        return new NavigationIcon(size, Direction.FIRST, paint, borderThickness, fillPaint);
+        return new NavigationIcon(size, Direction.SECTION_START, paint, borderThickness, fillPaint);
     }
 
-    public static Icon createNavigateLast(final int size, final Paint paint, final float borderThickness,
+    /**
+     * Erstellt das Icon für die Navigation an das Ende eines Abschnitts.
+     * 
+     * @param size
+     *            Größe des Icons in Pixeln.
+     * @param paint
+     *            Zeichenstil für den Rand des Icons.
+     * @param borderThickness
+     *            Linienbreite für das Zeichnen des Icons.
+     * @param fillPaint
+     *            Füllstil für das innere des Icons.
+     * @return Das erszeugte Icon.
+     */
+    public static Icon createNavigateSectionEnd(final int size, final Paint paint, final float borderThickness,
             final Paint fillPaint) {
-        return new NavigationIcon(size, Direction.LAST, paint, borderThickness, fillPaint);
+        return new NavigationIcon(size, Direction.SECTION_END, paint, borderThickness, fillPaint);
     }
 
-    public static Icon createNavigateNext(final int size, final Paint paint, final float borderThickness,
+    /**
+     * Erstellt das Icon für die Navigation um einen Schritt vor.
+     * 
+     * @param size
+     *            Größe des Icons in Pixeln.
+     * @param paint
+     *            Zeichenstil für den Rand des Icons.
+     * @param borderThickness
+     *            Linienbreite für das Zeichnen des Icons.
+     * @param fillPaint
+     *            Füllstil für das innere des Icons.
+     * @return Das erszeugte Icon.
+     */
+    public static Icon createNavigateForward(final int size, final Paint paint, final float borderThickness,
             final Paint fillPaint) {
-        return new NavigationIcon(size, Direction.NEXT, paint, borderThickness, fillPaint);
+        return new NavigationIcon(size, Direction.FORWARD, paint, borderThickness, fillPaint);
     }
 
-    public static Icon createNavigatePrevious(final int size, final Paint paint, final float borderThickness,
+    /**
+     * Erstellt das Icon für die Navigation um einen Schritt zurück.
+     * 
+     * @param size
+     *            Größe des Icons in Pixeln.
+     * @param paint
+     *            Zeichenstil für den Rand des Icons.
+     * @param borderThickness
+     *            Linienbreite für das Zeichnen des Icons.
+     * @param fillPaint
+     *            Füllstil für das innere des Icons.
+     * @return Das erszeugte Icon.
+     */
+    public static Icon createNavigateBackward(final int size, final Paint paint, final float borderThickness,
             final Paint fillPaint) {
-        return new NavigationIcon(size, Direction.PREVIOUS, paint, borderThickness, fillPaint);
+        return new NavigationIcon(size, Direction.BACKWARD, paint, borderThickness, fillPaint);
     }
 
-    public static Icon createNavigateFirstDouble(final int size, final Paint paint, final float borderThickness,
+    /**
+     * Erstellt das Icon für die Navigation an den Anfang des Dokuments.
+     * 
+     * @param size
+     *            Größe des Icons in Pixeln.
+     * @param paint
+     *            Zeichenstil für den Rand des Icons.
+     * @param borderThickness
+     *            Linienbreite für das Zeichnen des Icons.
+     * @param fillPaint
+     *            Füllstil für das innere des Icons.
+     * @return Das erszeugte Icon.
+     */
+    public static Icon createNavigateDocumentStart(final int size, final Paint paint, final float borderThickness,
             final Paint fillPaint) {
-        return new NavigationIcon(size, Direction.FIRST_DOUBLE, paint, borderThickness, fillPaint);
+        return new NavigationIcon(size, Direction.DOCUMENT_START, paint, borderThickness, fillPaint);
     }
 
-    public static Icon createNavigateLastDouble(final int size, final Paint paint, final float borderThickness,
+    /**
+     * Erstellt das Icon für die Navigation an das Ende des Dokuments.
+     * 
+     * @param size
+     *            Größe des Icons in Pixeln.
+     * @param paint
+     *            Zeichenstil für den Rand des Icons.
+     * @param borderThickness
+     *            Linienbreite für das Zeichnen des Icons.
+     * @param fillPaint
+     *            Füllstil für das innere des Icons.
+     * @return Das erszeugte Icon.
+     */
+    public static Icon createNavigateDocumentEnd(final int size, final Paint paint, final float borderThickness,
             final Paint fillPaint) {
-        return new NavigationIcon(size, Direction.LAST_DOUBLE, paint, borderThickness, fillPaint);
+        return new NavigationIcon(size, Direction.DOCUMENT_END, paint, borderThickness, fillPaint);
     }
 
+    /**
+     * Erstellt das Icon für die Navigation um mehrere Schritte vor.
+     * 
+     * @param size
+     *            Größe des Icons in Pixeln.
+     * @param paint
+     *            Zeichenstil für den Rand des Icons.
+     * @param borderThickness
+     *            Linienbreite für das Zeichnen des Icons.
+     * @param fillPaint
+     *            Füllstil für das innere des Icons.
+     * @return Das erszeugte Icon.
+     */
     public static Icon createNavigateNextDouble(final int size, final Paint paint, final float borderThickness,
             final Paint fillPaint) {
-        return new NavigationIcon(size, Direction.NEXT_DOUBLE, paint, borderThickness, fillPaint);
+        return new NavigationIcon(size, Direction.FAST_FORWARD, paint, borderThickness, fillPaint);
     }
 
-    public static Icon createNavigatePreviousDouble(final int size, final Paint paint, final float borderThickness,
+    /**
+     * Erstellt das Icon für die Navigation um mehrere Schritte zurück.
+     * 
+     * @param size
+     *            Größe des Icons in Pixeln.
+     * @param paint
+     *            Zeichenstil für den Rand des Icons.
+     * @param borderThickness
+     *            Linienbreite für das Zeichnen des Icons.
+     * @param fillPaint
+     *            Füllstil für das innere des Icons.
+     * @return Das erszeugte Icon.
+     */
+    public static Icon createNavigateFastBackward(final int size, final Paint paint, final float borderThickness,
             final Paint fillPaint) {
-        return new NavigationIcon(size, Direction.PREVIOUS_DOUBLE, paint, borderThickness, fillPaint);
+        return new NavigationIcon(size, Direction.FAST_BACKWARD, paint, borderThickness, fillPaint);
     }
 }
