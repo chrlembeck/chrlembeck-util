@@ -8,18 +8,21 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
-public class Algorithms {
+public final class Algorithms {
 
-    public static final <S> List<S> breadthFirstSearch(S state, Function<StateWrapper<S>, Iterable<S>> stateProducer, Consumer<StateWrapper<S>> consumer, Predicate<StateWrapper<S>> lastElement) {
-        Queue<StateWrapper<S>> queue = new LinkedList<>();
+    private Algorithms() {
+    }
+
+    public static final <S> List<S> breadthFirstSearch(final S state, final Function<StateWrapper<S>, Iterable<S>> stateProducer, final Consumer<StateWrapper<S>> consumer, final Predicate<StateWrapper<S>> lastElement) {
+        final Queue<StateWrapper<S>> queue = new LinkedList<>();
         StateWrapper<S> currentState = new StateWrapper<>(state, null);
         queue.add(currentState);
         consumer.accept(currentState);
         while (!queue.isEmpty()) {
             currentState = queue.poll();
-            Iterable<S> possibleStates = stateProducer.apply(currentState);
-            for (S possibleState: possibleStates) {
-                StateWrapper<S> newState = new StateWrapper<>(possibleState, currentState);
+            final Iterable<S> possibleStates = stateProducer.apply(currentState);
+            for (final S possibleState: possibleStates) {
+                final StateWrapper<S> newState = new StateWrapper<>(possibleState, currentState);
                 consumer.accept(newState);
                 if (lastElement.test(newState)) {
                     return newState.getStates();
@@ -36,7 +39,7 @@ public class Algorithms {
 
         final StateWrapper<S> predecessor;
 
-        public StateWrapper(S state, StateWrapper<S> predecessor) {
+        public StateWrapper(final S state, final StateWrapper<S> predecessor) {
             this.state = state;
             this.predecessor = predecessor;
         }
@@ -50,14 +53,14 @@ public class Algorithms {
         }
 
         public List<S> getStates() {
-            final List<S> l;
+            final List<S> stateList;
             if (predecessor == null) {
-                l = new ArrayList<>();
+                stateList = new ArrayList<>();
             } else {
-                l = predecessor.getStates();
+                stateList = predecessor.getStates();
             }
-            l.add(state);
-            return l;
+            stateList.add(state);
+            return stateList;
         }
     }
 }
