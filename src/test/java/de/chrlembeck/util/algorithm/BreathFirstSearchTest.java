@@ -4,11 +4,14 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
 
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.runner.RunWith;
 
 import de.chrlembeck.util.algorithm.Algorithms.StateWrapper;
 
+@RunWith(JUnitPlatform.class)
 public class BreathFirstSearchTest {
 
     @Test

@@ -13,20 +13,24 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.runner.RunWith;
+
 import de.chrlembeck.util.swing.icon.BallIcon;
 import de.chrlembeck.util.swing.icon.PaintedIcons;
 
 /**
  * Tests zu den Icons
- * 
+ *
  * @author Christoph Lembeck
  */
 @SuppressWarnings("PMD.UseUtilityClass")
+@RunWith(JUnitPlatform.class)
 public class IconTest {
 
     /**
      * Erstellt ein Fenster, in dem verschiedene Icons dargestellt werden.
-     * 
+     *
      * @param args
      *            Wird nicht verwendet.
      */
@@ -131,7 +135,7 @@ public class IconTest {
 
     /**
      * Fügt dem Panel ein Icon mit Beschreibungstext hinzu.
-     * 
+     *
      * @param panel
      *            Panel, auf dem das Icon dargestellt wird.
      * @param icon

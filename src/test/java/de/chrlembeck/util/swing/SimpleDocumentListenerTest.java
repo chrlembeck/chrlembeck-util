@@ -23,7 +23,7 @@ public class SimpleDocumentListenerTest {
 
     /**
      * Prüft, ob der Listener bei den drei Operationen auf Document-Objekten aufgerufen wird.
-     * 
+     *
      * @throws Exception
      *             Falls es einen Fehler im Test gibt.
      */
@@ -78,7 +78,7 @@ public class SimpleDocumentListenerTest {
 
         /**
          * Gibt zurück, ob die accept-Methode seit dem letzten Reset aufgerufen wurde.
-         * 
+         *
          * @return true, falls accept aufgerufen wurde, sonst false.
          */
         public boolean wasCalled() {
@@ -95,7 +95,7 @@ public class SimpleDocumentListenerTest {
 
         /**
          * Gibt das zuletzt an den Listener übergebene Event zurück.
-         * 
+         *
          * @return Das Letzte erhaltene DocumentEvent.
          */
         public DocumentEvent getLastEvent() {

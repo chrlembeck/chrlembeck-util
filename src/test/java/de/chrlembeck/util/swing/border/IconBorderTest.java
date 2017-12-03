@@ -10,6 +10,9 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
+import org.junit.platform.runner.JUnitPlatform;
+import org.junit.runner.RunWith;
+
 import de.chrlembeck.util.swing.icon.BallIcon;
 
 /**
@@ -18,11 +21,12 @@ import de.chrlembeck.util.swing.icon.BallIcon;
  * @author Christoph Lembeck
  */
 @SuppressWarnings("PMD.UseUtilityClass")
+@RunWith(JUnitPlatform.class)
 public class IconBorderTest {
 
     /**
      * Öffnet ein Fenster zur Anzeige des Borders.
-     * 
+     *
      * @param args
      *            Wird nicht verwendet.
      */
