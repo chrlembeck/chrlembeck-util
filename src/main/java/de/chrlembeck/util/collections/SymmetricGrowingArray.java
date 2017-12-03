@@ -4,37 +4,37 @@ import java.util.function.IntFunction;
 
 public class SymmetricGrowingArray<T> {
 
-    private IntFunction<T[]> arrayProducer;
+    private final IntFunction<T[]> arrayProducer;
 
     private T[] array;
 
-    public SymmetricGrowingArray(IntFunction<T[]> arrayProducer) {
+    public SymmetricGrowingArray(final IntFunction<T[]> arrayProducer) {
         this.arrayProducer = arrayProducer;
         this.array = arrayProducer.apply(1);
     }
 
-    public T get(int index) {
-        int internalIndex = mapIndex(index);
+    public T get(final int index) {
+        final int internalIndex = mapIndex(index);
         return internalIndex >= array.length? null:array[internalIndex];
     }
 
-    public T put(int index, T newValue) {
-        int internalIndex = mapIndex(index);
+    public T put(final int index, final T newValue) {
+        final int internalIndex = mapIndex(index);
         checkSize(internalIndex+1);
-        T result = array[internalIndex];
+        final T result = array[internalIndex];
         array[internalIndex] = newValue;
         return result;
     }
 
-    private void checkSize(int neededSize) {
+    private void checkSize(final int neededSize) {
         if (array.length < neededSize) {
-            T[] newArray = arrayProducer.apply(neededSize);
+            final T[] newArray = arrayProducer.apply(neededSize);
             System.arraycopy(array, 0, newArray, 0, array.length);
             array = newArray;
         }
     }
 
-    private static int mapIndex(int index) {
+    private static int mapIndex(final int index) {
         return (index >= 0) ? index << 1: ((-index)<<1)-1;
     }
 
