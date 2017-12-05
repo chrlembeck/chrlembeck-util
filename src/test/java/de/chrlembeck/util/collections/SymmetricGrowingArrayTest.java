@@ -5,34 +5,48 @@ import org.junit.jupiter.api.Test;
 import org.junit.platform.runner.JUnitPlatform;
 import org.junit.runner.RunWith;
 
+/**
+ * Tests für die Klasse SymmetricGrowingArray.
+ * 
+ * @author Christoph Lembeck
+ */
 @RunWith(JUnitPlatform.class)
 public class SymmetricGrowingArrayTest {
 
+    /**
+     * Tests rund um das leere Array.
+     */
     @Test
     public void testEmpty() {
-        SymmetricGrowingArray<Integer> array = new SymmetricGrowingArray<>(Integer[]::new);
-        for (int i = -10; i <=10; i++) {
+        final SymmetricGrowingArray<Integer> array = new SymmetricGrowingArray<>(Integer[]::new);
+        for (int i = -10; i <= 10; i++) {
             Assertions.assertEquals(null, array.get(i));
         }
     }
 
+    /**
+     * Testet die getRange-Methode.
+     */
     @Test
-    public void testSize() {
-        SymmetricGrowingArray<Integer> array = new SymmetricGrowingArray<>(Integer[]::new);
-        Assertions.assertArrayEquals(new int[] {0,0}, array.getSize());
+    public void testRange() {
+        final SymmetricGrowingArray<Integer> array = new SymmetricGrowingArray<>(Integer[]::new);
+        Assertions.assertArrayEquals(new int[] { 0, 0 }, array.getRange());
         array.put(-1, Integer.valueOf(42));
-        Assertions.assertArrayEquals(new int[] {-1,0}, array.getSize());
+        Assertions.assertArrayEquals(new int[] { -1, 0 }, array.getRange());
         array.put(1, Integer.valueOf(42));
-        Assertions.assertArrayEquals(new int[] {-1,1}, array.getSize());
+        Assertions.assertArrayEquals(new int[] { -1, 1 }, array.getRange());
         array.put(-2, Integer.valueOf(42));
-        Assertions.assertArrayEquals(new int[] {-2,1}, array.getSize());
+        Assertions.assertArrayEquals(new int[] { -2, 1 }, array.getRange());
         array.put(2, Integer.valueOf(42));
-        Assertions.assertArrayEquals(new int[] {-2,2}, array.getSize());
+        Assertions.assertArrayEquals(new int[] { -2, 2 }, array.getRange());
     }
 
+    /**
+     * Testet die put und get-Methoden.
+     */
     @Test
     public void testGet() {
-        SymmetricGrowingArray<Integer> array = new SymmetricGrowingArray<>(Integer[]::new);
+        final SymmetricGrowingArray<Integer> array = new SymmetricGrowingArray<>(Integer[]::new);
         array.put(5, Integer.valueOf(42));
         Assertions.assertEquals(Integer.valueOf(42), array.get(5));
         array.put(-7, Integer.valueOf(17));

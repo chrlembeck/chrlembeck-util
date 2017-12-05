@@ -11,16 +11,25 @@ import org.junit.runner.RunWith;
 
 import de.chrlembeck.util.algorithm.Algorithms.StateWrapper;
 
+/**
+ * Tests für die Breitensuche.
+ * 
+ * @author Christoph Lembeck
+ */
 @RunWith(JUnitPlatform.class)
 public class BreathFirstSearchTest {
 
+    /**
+     * Test der Breitensuche mit einem sehr einfachen Algorithmus.
+     */
     @Test
     public void simpleTest() {
-        Function<StateWrapper<String>, Iterable<String>> stateProducer = (s)->{
-            String old = s.getState();
-            return Arrays.asList(old+"a", old+"b", old+"c");
+        final Function<StateWrapper<String>, Iterable<String>> stateProducer = (stateWrapper) -> {
+            final String old = stateWrapper.getState();
+            return Arrays.asList(old + "a", old + "b", old + "c");
         };
-        List<String> result = Algorithms.breadthFirstSearch("", stateProducer, s->System.out.println(s.getState()), s->s.getState().equals("abc"));
+        final List<String> result = Algorithms.breadthFirstSearch("", stateProducer,
+                wrapper -> System.out.println(wrapper.getState()), wrapper -> wrapper.getState().equals("abc"));
         Assertions.assertEquals(4, result.size());
         Assertions.assertEquals("", result.get(0));
         Assertions.assertEquals("a", result.get(1));
