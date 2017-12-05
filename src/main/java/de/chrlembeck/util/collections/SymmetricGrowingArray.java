@@ -1,5 +1,7 @@
 package de.chrlembeck.util.collections;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 import java.util.function.IntFunction;
 
 /**
@@ -12,7 +14,7 @@ import java.util.function.IntFunction;
  * @param <T>
  *            Typ der Elemente in dem Array.
  */
-public class SymmetricGrowingArray<T> {
+public class SymmetricGrowingArray<T> implements Iterable<T> {
 
     /**
      * Funktion zur Erzeugung eines neuen Arrays des passenden Typs.
@@ -22,7 +24,7 @@ public class SymmetricGrowingArray<T> {
     /**
      * Internes Array zur Speicherung der enthaltenen Daten.
      */
-    private T[] array;
+    T[] array;
 
     /**
      * Kleinster Index oder linker Rand des Arrays.
@@ -97,7 +99,11 @@ public class SymmetricGrowingArray<T> {
         final int delta = neededInternalIndex < 0 ? -neededInternalIndex : neededInternalIndex - array.length + 1;
         if (delta > 0) {
             final T[] newArray = arrayProducer.apply(array.length + delta);
-            System.arraycopy(array, 0, newArray, 0, array.length);
+            if (neededInternalIndex < 0) {
+                System.arraycopy(array, 0, newArray, delta, array.length);
+            } else {
+                System.arraycopy(array, 0, newArray, 0, array.length);
+            }
             array = newArray;
             if (neededInternalIndex < 0) {
                 offset -= delta;
@@ -126,5 +132,36 @@ public class SymmetricGrowingArray<T> {
      */
     public int[] getRange() {
         return new int[] { offset, offset + array.length - 1 };
+    }
+
+    /**
+     * Gibt die aktuelle Länge des Arrays zurück.
+     * 
+     * @return Aktuelle Länge des Arrays.
+     */
+    public int size() {
+        return array.length;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new Iterator<T>() {
+
+            int pos;
+
+            @Override
+            public boolean hasNext() {
+                return pos < array.length;
+            }
+
+            @Override
+            public T next() {
+                if (hasNext()) {
+                    return array[pos++];
+                } else {
+                    throw new NoSuchElementException();
+                }
+            }
+        };
     }
 }

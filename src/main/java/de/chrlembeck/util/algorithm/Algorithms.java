@@ -36,6 +36,9 @@ public final class Algorithms {
      *            Prüfkriterium für die Erkennung des gesuchten Zustands. Ist das Prüfkriterium erfüllt, wird die Suche
      *            beendet und die bis zur Erreichung des gefundenen Zustands durchlaufenen Zustände werden als Ergebnis
      *            zurückgegeben.
+     * 
+     * @param <State>
+     *            Typ der Objekte für die Speicherung der Zwischenzustände.
      * @return Liste der bis zum Erreichen des gesuchten Zustands durchlaufenen Zwischenzustände inklusive Start- und
      *         Zielzustand. Null, falls kein erzeugter Zustand dem Suchkriterium entsprochen hat.
      */
