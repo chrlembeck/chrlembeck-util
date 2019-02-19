@@ -33,7 +33,7 @@
     <!-- ++++++++++++++++ -->
     <packaging>jar</packaging>
     <name>chrlembeck util</name>
-    <url>https://github.com/chrlembeck/util</url>
+    <url>https://github.com/chrlembeck/chrlembeck-util</url>
 
     <!-- ++++++++++ -->
     <!-- properties -->
@@ -49,12 +49,6 @@
     <!-- (note: only test scope dependencies are allowed in this project) -->
     <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
     <dependencies>
-        <dependency>
-            <groupId>org.junit.platform</groupId>
-            <artifactId>junit-platform-launcher</artifactId>
-            <version>1.4.0</version>
-            <scope>test</scope>
-        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-engine</artifactId>
