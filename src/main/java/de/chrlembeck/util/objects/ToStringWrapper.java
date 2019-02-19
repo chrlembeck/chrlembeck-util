@@ -11,7 +11,7 @@ import java.util.function.Function;
  * @author Christoph Lembeck.
  *
  * @param <O>
- *            Typ den in dem Wrapper enthaltenen Objekts.
+ *            Typ des in dem Wrapper enthaltenen Objekts.
  */
 public class ToStringWrapper<O> {
 

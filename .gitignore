@@ -4,3 +4,4 @@
 target/
 .eclipse-pmd
 *.iml
+.idea
