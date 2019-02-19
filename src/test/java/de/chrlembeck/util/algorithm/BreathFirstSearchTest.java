@@ -3,12 +3,8 @@ package de.chrlembeck.util.algorithm;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Function;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
-
 import de.chrlembeck.util.algorithm.Algorithms.StateWrapper;
 
 /**
@@ -16,7 +12,6 @@ import de.chrlembeck.util.algorithm.Algorithms.StateWrapper;
  * 
  * @author Christoph Lembeck
  */
-@RunWith(JUnitPlatform.class)
 public class BreathFirstSearchTest {
 
     /**

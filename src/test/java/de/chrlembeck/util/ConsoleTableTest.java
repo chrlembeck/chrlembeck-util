@@ -8,9 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.WindowConstants;
 
-import org.junit.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 
 import de.chrlembeck.util.console.ConsoleTable;
 import de.chrlembeck.util.console.ConsoleTable.Alignment;
@@ -21,7 +19,6 @@ import de.chrlembeck.util.console.ConsoleTable.Alignment;
  * @author LeC
  *
  */
-@RunWith(JUnitPlatform.class)
 public class ConsoleTableTest {
 
     /**

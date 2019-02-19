@@ -2,15 +2,15 @@ package de.chrlembeck.util.collections;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
+//import org.junit.platform.runner.JUnitPlatform;
+//import org.junit.runner.RunWith;
 
 /**
  * Tests für die Klasse SymmetricGrowingArray.
  * 
  * @author Christoph Lembeck
  */
-@RunWith(JUnitPlatform.class)
+//@RunWith(JUnitPlatform.class)
 public class BidirectionalGrowingArrayTest {
 
     /**

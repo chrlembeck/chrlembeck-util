@@ -2,18 +2,14 @@ package de.chrlembeck.util.collections;
 
 import java.util.Arrays;
 import java.util.TreeSet;
-
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
 /**
  * Tests für die CollectionsUtil-Klasse.
  *
  * @author Christoph Lembeck
  */
-@RunWith(JUnitPlatform.class)
 public class CollectionsUtilTest {
 
     /**
@@ -21,8 +17,8 @@ public class CollectionsUtilTest {
      */
     @Test
     public void testNullOrEmpty() {
-        Assert.assertTrue(CollectionsUtil.isNullOrEmpty(null));
-        Assert.assertTrue(CollectionsUtil.isNullOrEmpty(new TreeSet<Float>()));
-        Assert.assertFalse(CollectionsUtil.isNullOrEmpty(Arrays.asList(1, 2, 3)));
+        Assertions.assertTrue(CollectionsUtil.isNullOrEmpty(null));
+        Assertions.assertTrue(CollectionsUtil.isNullOrEmpty(new TreeSet<Float>()));
+        Assertions.assertFalse(CollectionsUtil.isNullOrEmpty(Arrays.asList(1, 2, 3)));
     }
 }

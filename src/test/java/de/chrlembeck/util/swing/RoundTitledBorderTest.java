@@ -14,8 +14,6 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 
 import de.chrlembeck.util.swing.border.RoundTitledBorder;
 
@@ -25,7 +23,6 @@ import de.chrlembeck.util.swing.border.RoundTitledBorder;
  * @author Christoph Lembeck
  */
 @SuppressWarnings("PMD.UseUtilityClass")
-@RunWith(JUnitPlatform.class)
 public class RoundTitledBorderTest {
 
     /**

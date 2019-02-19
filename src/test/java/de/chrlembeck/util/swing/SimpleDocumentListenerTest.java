@@ -7,18 +7,14 @@ import javax.swing.event.DocumentEvent.EventType;
 import javax.swing.text.DefaultStyledDocument;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.platform.runner.JUnitPlatform;
-import org.junit.runner.RunWith;
 
 /**
  * Tests für den SimpleDocumentListener
  *
  * @author Christoph Lembeck
  */
-@RunWith(JUnitPlatform.class)
 public class SimpleDocumentListenerTest {
 
     /**
