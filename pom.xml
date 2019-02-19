@@ -28,6 +28,24 @@
         <url>scm:git:https://github.com/chrlembeck/chrlembeck-util.git</url>
     </scm>
 
+    <description>Einfache Utility-Klassen</description>
+    <licenses>
+        <license>
+            <name>BSD-3</name>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Christoph Lembeck</name>
+            <email>chrlembeck@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>scm:git:https://github.com/chrlembeck/chrlembeck-util.git</url>
+    </scm>
+
     <!-- ++++++++++++++++ -->
     <!-- general settings -->
     <!-- ++++++++++++++++ -->
