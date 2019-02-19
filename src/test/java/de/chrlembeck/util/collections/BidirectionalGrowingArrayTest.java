@@ -11,14 +11,14 @@ import org.junit.runner.RunWith;
  * @author Christoph Lembeck
  */
 @RunWith(JUnitPlatform.class)
-public class SymmetricGrowingArrayTest {
+public class BidirectionalGrowingArrayTest {
 
     /**
      * Tests rund um das leere Array.
      */
     @Test
     public void testEmpty() {
-        final SymmetricGrowingArray<Integer> array = new SymmetricGrowingArray<>(Integer[]::new);
+        final BidirectionalGrowingArray<Integer> array = new BidirectionalGrowingArray<>(Integer[]::new);
         for (int i = -10; i <= 10; i++) {
             Assertions.assertEquals(null, array.get(i));
         }
@@ -29,10 +29,15 @@ public class SymmetricGrowingArrayTest {
      */
     @Test
     public void testRange() {
-        final SymmetricGrowingArray<Integer> array = new SymmetricGrowingArray<>(Integer[]::new);
-        Assertions.assertArrayEquals(new int[] { 0, 0 }, array.getRange());
+        final BidirectionalGrowingArray<Integer> array = new BidirectionalGrowingArray<>(Integer[]::new);
+        try {
+            Assertions.assertArrayEquals(new int[] { 0, 0 }, array.getRange());
+            Assertions.fail("ArrayIndexOutOfBoundsException expected.");
+        } catch (final ArrayIndexOutOfBoundsException e) {
+            // expected
+        }
         array.put(-1, Integer.valueOf(42));
-        Assertions.assertArrayEquals(new int[] { -1, 0 }, array.getRange());
+        Assertions.assertArrayEquals(new int[] { -1, -1 }, array.getRange());
         array.put(1, Integer.valueOf(42));
         Assertions.assertArrayEquals(new int[] { -1, 1 }, array.getRange());
         array.put(-2, Integer.valueOf(42));
@@ -46,7 +51,7 @@ public class SymmetricGrowingArrayTest {
      */
     @Test
     public void testGet() {
-        final SymmetricGrowingArray<Integer> array = new SymmetricGrowingArray<>(Integer[]::new);
+        final BidirectionalGrowingArray<Integer> array = new BidirectionalGrowingArray<>(Integer[]::new);
         array.put(5, Integer.valueOf(42));
         Assertions.assertEquals(Integer.valueOf(42), array.get(5));
         array.put(-7, Integer.valueOf(17));
@@ -57,5 +62,13 @@ public class SymmetricGrowingArrayTest {
         Assertions.assertEquals(Integer.valueOf(36), array.get(-3));
         array.put(5, Integer.valueOf(16));
         Assertions.assertEquals(Integer.valueOf(16), array.get(5));
+    }
+
+    /**
+     * Empty arrays shpoud have size zero.
+     */
+    @Test
+    public void testZeroSize() {
+        Assertions.assertEquals(0, new BidirectionalGrowingArray<>(Object[]::new).size());
     }
 }

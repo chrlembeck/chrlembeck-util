@@ -14,7 +14,7 @@ import java.util.function.IntFunction;
  * @param <T>
  *            Typ der Elemente in dem Array.
  */
-public class SymmetricGrowingArray<T> implements Iterable<T> {
+public class BidirectionalGrowingArray<T> implements Iterable<T> {
 
     /**
      * Funktion zur Erzeugung eines neuen Arrays des passenden Typs.
@@ -37,7 +37,7 @@ public class SymmetricGrowingArray<T> implements Iterable<T> {
      * @param arrayProducer
      *            Funktion zur Erzeugung von Arrays des Typs T.
      */
-    public SymmetricGrowingArray(final IntFunction<T[]> arrayProducer) {
+    public BidirectionalGrowingArray(final IntFunction<T[]> arrayProducer) {
         this(arrayProducer, 0);
     }
 
@@ -49,9 +49,9 @@ public class SymmetricGrowingArray<T> implements Iterable<T> {
      * @param startIndex
      *            Initialer linker Rand oder kleinster Index des Arrays.
      */
-    public SymmetricGrowingArray(final IntFunction<T[]> arrayProducer, final int startIndex) {
+    public BidirectionalGrowingArray(final IntFunction<T[]> arrayProducer, final int startIndex) {
         this.arrayProducer = arrayProducer;
-        this.array = arrayProducer.apply(1);
+        this.array = arrayProducer.apply(0);
         this.offset = startIndex;
     }
 
@@ -129,9 +129,23 @@ public class SymmetricGrowingArray<T> implements Iterable<T> {
      * innerhalb des Arrays.
      * 
      * @return Zweielementige Array mit dem kleinsten und größten noch im Array befindlichen Index.
+     * @throws ArrayIndexOutOfBoundsException
+     *             Falls das Array leer ist.
      */
-    public int[] getRange() {
+    public int[] getRange() throws ArrayIndexOutOfBoundsException {
+        if (isEmpty()) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
         return new int[] { offset, offset + array.length - 1 };
+    }
+
+    /**
+     * Prüft, ob das Array leer ist.
+     * 
+     * @return true, wenn das Array leer ist, sonst false.
+     */
+    private boolean isEmpty() {
+        return size() == 0;
     }
 
     /**
