@@ -10,6 +10,24 @@
     <artifactId>chrlembeck-util</artifactId>
     <version>0.0.2-SNAPSHOT</version>
 
+    <description>Einfache Utility-Klassen</description>
+    <licenses>
+        <license>
+            <name>BSD-3</name>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>Christoph Lembeck</name>
+            <email>chrlembeck@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <url>scm:git:https://github.com/chrlembeck/chrlembeck-util.git</url>
+    </scm>
+
     <!-- ++++++++++++++++ -->
     <!-- general settings -->
     <!-- ++++++++++++++++ -->
@@ -266,6 +284,9 @@
                 </plugins>
 
             </reporting>
+        </profile>
+        <profile>
+            <id>release</id>
         </profile>
     </profiles>
 
