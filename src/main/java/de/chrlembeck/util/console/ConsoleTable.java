@@ -52,7 +52,7 @@ public class ConsoleTable implements Serializable {
     /**
      * Speichert die Zeilen der Tabelle. Jede Zeile hat die gleiche Anzahl an Elementen (Spalten).
      */
-    private List<String[]> rows;
+    private final List<String[]> rows;
 
     /**
      * Konstanten für die Ausrichtung der Inhalte in den Tabellenzellen und Spaltenüberschriften

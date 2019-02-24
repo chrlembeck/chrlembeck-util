@@ -16,7 +16,7 @@ public class SimpleDocumentListener implements DocumentListener {
     /**
      * Aktion, die durchgeführt werden soll, wenn eine Änderung an dem beobachteten Dokument vorgenommen wurde.
      */
-    private Consumer<DocumentEvent> eventConsumer;
+    private final Consumer<DocumentEvent> eventConsumer;
 
     /**
      * Erstellt einen neuen Listener mit der übergebenen Aktion als Reaktion auf jegliche Änderungen im beobachteten

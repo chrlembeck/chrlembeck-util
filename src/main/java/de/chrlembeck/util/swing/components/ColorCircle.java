@@ -25,7 +25,7 @@ public class ColorCircle extends JComponent {
     /**
      * ID für die UI, die in dieser Komponente verwendet werden soll.
      */
-    @SuppressWarnings("PMD.VariableNamingConventions")
+    @SuppressWarnings("PMD.FieldNamingConventions")
     private static final String uiClassID = "ColorCircleUI";
 
     /**
@@ -155,7 +155,7 @@ public class ColorCircle extends JComponent {
     }
 
     /**
-     * Repräsentiert einen Farbwert des HSV-Farbraums. Hierin sind Farebn durch Farbwert, Farbsättigung und Helligkeit
+     * Repräsentiert einen Farbwert des HSV-Farbraums. Hierin sind Farben durch Farbwert, Farbsättigung und Helligkeit
      * definiert.
      * 
      * @author Christoph Lembeck
@@ -165,17 +165,17 @@ public class ColorCircle extends JComponent {
         /**
          * Farbwert oder Farbwinkel auf dem Farbkreis.
          */
-        private int hue;
+        private final int hue;
 
         /**
          * Farbsättigung. 0 entspricht Neutralgrau, 255 entspricht der vollen Farbsättigung.
          */
-        private int saturation;
+        private final int saturation;
 
         /**
          * Hellwert. 0 entspricht Schwarz, 255 der vollen Farbhelligkeit.
          */
-        private int value;
+        private final int value;
 
         /**
          * Erstellt eine neue HSV-Farbe anhand der übergebenen Werte.

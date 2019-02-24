@@ -13,7 +13,7 @@ public class CountingWriter extends Writer {
     /**
      * Writer, in den die Zeichen nach dem Zählen geschrieben werden.
      */
-    private Writer writer;
+    private final Writer writer;
 
     /**
      * Anzahl der geschriebenen Zeichen.

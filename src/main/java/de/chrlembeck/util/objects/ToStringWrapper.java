@@ -18,12 +18,12 @@ public class ToStringWrapper<O> {
     /**
      * Referenz auf das enthaltene Objekt.
      */
-    private O object;
+    private final O object;
 
     /**
      * Methode, die Statt der toString-Methode des eingepackten Objekts ausgeführt werden soll.
      */
-    private Function<O, String> toStringFunction;
+    private final Function<O, String> toStringFunction;
 
     /**
      * Erstell einen neuen Wrapper für das Objekt.

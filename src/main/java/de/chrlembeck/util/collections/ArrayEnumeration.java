@@ -15,7 +15,7 @@ public class ArrayEnumeration<T> implements Enumeration<T> {
     /**
      * Referenz auf das Array, über das iteriert werden soll.
      */
-    private T[] array;
+    private final T[] array;
 
     /**
      * Aktuelle Position innerhalb des Arrays.

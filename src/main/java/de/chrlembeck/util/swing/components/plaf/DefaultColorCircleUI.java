@@ -262,12 +262,12 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
                 return 0;
             }
 
-            final float blackToPoint_x = (float) (xPos - black.getX());
-            final float blackToPoint_y = (float) (yPos - black.getY());
+            final float blackToPointX = (float) (xPos - black.getX());
+            final float blackToPointY = (float) (yPos - black.getY());
             // schnittpunkt = black * coeff + blackToPoint
-            final float coeff = numerator / (blackToPoint_x * dyTopToWhite - dxTopToWhite * blackToPoint_y);
-            final Point2D schnittpunkt = new Point2D.Double(black.getX() + coeff * blackToPoint_x, black.getY() + coeff
-                    * blackToPoint_y);
+            final float coeff = numerator / (blackToPointX * dyTopToWhite - dxTopToWhite * blackToPointY);
+            final Point2D schnittpunkt = new Point2D.Double(black.getX() + coeff * blackToPointX, black.getY() + coeff
+                    * blackToPointY);
             final float sat = (float) (white.distance(schnittpunkt) / distTopToWhite);
             return Math.min(255, (int) (sat * 255));
         }
@@ -350,7 +350,6 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
         final int hue = circle.getHue();
         final Insets insets = circle.getInsets();
         final int width = circle.getWidth() - insets.left - insets.right;
-        @SuppressWarnings("PMD.AccessorMethodGeneration")
         final int height = circle.getHeight() - insets.top - insets.bottom;
         final Point start = getTopLeftPosition(insets);
         final int size = Math.min(width, height);
@@ -373,7 +372,6 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
         final Insets insets = circle.getInsets();
         final Point start = getTopLeftPosition(insets);
         final int width = circle.getWidth() - insets.left - insets.right;
-        @SuppressWarnings("PMD.AccessorMethodGeneration")
         final int height = circle.getHeight() - insets.top - insets.bottom;
         final Point center = getCenter(start, width, height);
         return (180 + (int) (Math.atan2(center.x - xPos, yPos - center.y) / Math.PI * 180)) % 360;
@@ -397,7 +395,6 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
         final Insets insets = circle.getInsets();
         final Point start = getTopLeftPosition(insets);
         final int width = circle.getWidth() - insets.left - insets.right;
-        @SuppressWarnings("PMD.AccessorMethodGeneration")
         final int height = circle.getHeight() - insets.top - insets.bottom;
         final int size = Math.min(width, height);
         final int radius = size / 2;
@@ -469,7 +466,6 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
         final Insets insets = circle.getInsets();
         final Point start = getTopLeftPosition(insets);
         final int width = circle.getWidth() - insets.left - insets.right;
-        @SuppressWarnings("PMD.AccessorMethodGeneration")
         final int height = circle.getHeight() - insets.top - insets.bottom;
         final int size = Math.min(width, height);
         final int radius = size / 2;
@@ -508,7 +504,6 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
      *            Insets für das Objekt
      * @return Obere, linke Ecke des Insets-Objekt als die Position, an der die Komponente gezeichnet werden soll.
      */
-    @SuppressWarnings("PMD.AccessorMethodGeneration") // due to pmd bug...
     private Point getTopLeftPosition(final Insets insets) {
         return new Point(insets.left, insets.top);
     }
@@ -542,7 +537,6 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
         final Insets insets = circle.getInsets();
         final Point start = getTopLeftPosition(insets);
         final int width = circle.getWidth() - insets.left - insets.right;
-        @SuppressWarnings("PMD.AccessorMethodGeneration")
         final int height = circle.getHeight() - insets.top - insets.bottom;
         final int size = Math.min(width, height);
         final int radius = size / 2;

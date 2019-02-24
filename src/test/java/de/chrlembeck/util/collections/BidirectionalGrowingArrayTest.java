@@ -30,12 +30,7 @@ public class BidirectionalGrowingArrayTest {
     @Test
     public void testRange() {
         final BidirectionalGrowingArray<Integer> array = new BidirectionalGrowingArray<>(Integer[]::new);
-        try {
-            Assertions.assertArrayEquals(new int[] { 0, 0 }, array.getRange());
-            Assertions.fail("ArrayIndexOutOfBoundsException expected.");
-        } catch (final ArrayIndexOutOfBoundsException e) {
-            // expected
-        }
+        Assertions.assertThrows(ArrayIndexOutOfBoundsException.class, ()->array.getRange());
         array.put(-1, Integer.valueOf(42));
         Assertions.assertArrayEquals(new int[] { -1, -1 }, array.getRange());
         array.put(1, Integer.valueOf(42));

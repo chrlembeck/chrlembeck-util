@@ -73,39 +73,39 @@ public final class StrokeChooserDialog extends JDialog {
     /**
      * Eingabefeld für die Definition der Linienbreite.
      */
-    private JFormattedTextField widthField;
+    private transient JFormattedTextField widthField;
 
     /**
      * Eingabfeld für die Definition der Gehrungswinkel-Grenze.
      * 
      * @see BasicStroke#getMiterLimit()
      */
-    private JFormattedTextField miterLimitField;
+    private transient JFormattedTextField miterLimitField;
 
     /**
      * Auswahlschaltfläche für das stumpfe Beenden von Linien.
      */
-    private JRadioButton capButtButton;
+    private transient JRadioButton capButtButton;
 
     /**
      * Auswahlschaltfläche für das abgerundete Beenden von Linien.
      */
-    private JRadioButton capRoundButton;
+    private transient JRadioButton capRoundButton;
 
     /**
      * Auswahlschaltfläche für das geradlinige verbinden von aneinanderstoßenden Liniensegmenten.
      */
-    private JRadioButton joinMiterButton;
+    private transient JRadioButton joinMiterButton;
 
     /**
      * Auswahlschaltfläche für das abgerundete Zusammenfügen von Liniensegmenten.
      */
-    private JRadioButton joinRoundButton;
+    private transient JRadioButton joinRoundButton;
 
     /**
      * Liste für die Auswahl einer Definition für die Art der gestrichelten Linienführung.
      */
-    private JList<DashInfo> dashList;
+    private transient JList<DashInfo> dashList;
 
     /**
      * Mögliche Ergebnisse der Linienstilauswahl.
@@ -128,7 +128,7 @@ public final class StrokeChooserDialog extends JDialog {
     /**
      * Label, welches das Icon zur Darstellung der aktuellen Auswahl enthält.
      */
-    private JLabel exampleLabel;
+    private transient JLabel exampleLabel;
 
     /**
      * Hält fest, mit welcher Aktion der Dialog beendet wurde.
@@ -621,9 +621,7 @@ public final class StrokeChooserDialog extends JDialog {
      *            Wird nicht verwendet.
      */
     public static void main(final String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            System.out.println(openStrokeDialog(new JFrame(), "Linienstil", new BasicStroke()));
-        });
+        SwingUtilities.invokeLater(() -> System.out.println(openStrokeDialog(new JFrame(), "Linienstil", new BasicStroke())));
     }
 
     /**
@@ -709,9 +707,9 @@ public final class StrokeChooserDialog extends JDialog {
                             - strokeWidth / 2);
             path.lineTo(strokeWidth / 2 + radius2, height - strokeWidth / 2);
             path.lineTo(strokeWidth / 2, height - strokeWidth / 2 - radius2);
-            path.lineTo(strokeWidth / 2, height * 2 / 3);
-            path.lineTo(width / 2, height / 2);
-            path.lineTo(strokeWidth / 2, height * 1 / 3);
+            path.lineTo(strokeWidth / 2, height * 2 / 3f);
+            path.lineTo(width / 2f, height / 2f);
+            path.lineTo(strokeWidth / 2, height * 1 / 3f);
             path.closePath();
 
             g2d.setStroke(stroke);

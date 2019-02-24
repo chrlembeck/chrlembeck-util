@@ -31,7 +31,7 @@ public class ContiguousUpdateManager extends UndoManager {
     /**
      * Textkomponente, für die das Undo-Management übernommen werden soll.
      */
-    private JTextComponent textComponent;
+    private final JTextComponent textComponent;
 
     /**
      * Aktuelles Edit-Objekt, zu dem gegebenenfalls noch weitere Änderungen hinzugefügt werden sollen.

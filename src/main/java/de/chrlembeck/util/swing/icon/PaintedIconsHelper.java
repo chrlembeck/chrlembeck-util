@@ -13,8 +13,7 @@ import de.chrlembeck.util.swing.icon.ZoomIcon.Sign;
  *
  * @author Christoph Lembeck
  */
-@SuppressWarnings("PMD.UseUtilityClass")
-public class PaintedIcons {
+public class PaintedIconsHelper {
 
     /**
      * Erzeugt einen farbigen Ball beliebiger Größe.

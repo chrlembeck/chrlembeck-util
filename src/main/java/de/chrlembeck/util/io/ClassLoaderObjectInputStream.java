@@ -18,7 +18,7 @@ public class ClassLoaderObjectInputStream extends ObjectInputStream {
     /**
      * Zum Laden der benötigen Klassen verwendbarer Classloader.
      */
-    private ClassLoader classLoader;
+    private final ClassLoader classLoader;
 
     /**
      * Erzeugt eine Instanz des InputStreams.

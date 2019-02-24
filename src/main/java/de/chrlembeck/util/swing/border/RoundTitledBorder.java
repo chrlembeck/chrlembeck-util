@@ -35,37 +35,37 @@ public class RoundTitledBorder implements Border {
     /**
      * Farbe für das Zeichnen des Rahmens.
      */
-    private Color borderColor;
+    private final Color borderColor;
 
     /**
      * Schriftart für das Zeichnen des Rahmentitels.
      */
-    private Font font;
+    private final Font font;
 
     /**
      * Breite des Rahmens in Pixeln.
      */
-    private float lineWidth;
+    private final float lineWidth;
 
     /**
      * Radius für das Abrunden der Ecken.
      */
-    private int radius;
+    private final int radius;
 
     /**
      * Angezeigter Titel im oberen Bereich des Rahmens.
      */
-    private String title;
+    private final String title;
 
     /**
      * Füllfarbe für den Titelbereich des Rahmens.
      */
-    private Color titleBackground;
+    private final Color titleBackground;
 
     /**
      * Farbe für die Darstellung des Rahmentitels.
      */
-    private Color titleForeground;
+    private final Color titleForeground;
 
     /**
      * Bereich, in dem der Titel des Rahmens dargestellt wird.
@@ -130,7 +130,7 @@ public class RoundTitledBorder implements Border {
      */
     private Float getTitleBorder(final int startX, final int startY, final int titleHeight,
             final Rectangle2D textBounds) {
-        return new RoundRectangle2D.Float(startX + radius / 2 + lineWidth, startY + lineWidth / 2,
+        return new RoundRectangle2D.Float(startX + radius / 2f + lineWidth, startY + lineWidth / 2,
                 (float) textBounds.getWidth()
                         + titleHeight - lineWidth,
                 titleHeight - lineWidth, titleHeight - lineWidth, titleHeight - lineWidth);
@@ -144,9 +144,8 @@ public class RoundTitledBorder implements Border {
      * @return Benötigte Höhe für die Darstellung der Überschrift.
      */
     private int getTitleHeight(final Component component) {
-        final int titleHeight = 2 + 2 * (int) Math.ceil(lineWidth) + component.getFontMetrics(font).getAscent()
+        return 2 + 2 * (int) Math.ceil(lineWidth) + component.getFontMetrics(font).getAscent()
                 + component.getFontMetrics(font).getDescent();
-        return titleHeight;
     }
 
     /**

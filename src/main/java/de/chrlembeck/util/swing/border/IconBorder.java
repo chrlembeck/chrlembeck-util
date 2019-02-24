@@ -27,18 +27,18 @@ public class IconBorder extends AbstractBorder {
     /**
      * Icon, welches rechts oben dargestellt werden soll.
      */
-    private Icon icon;
+    private final Icon icon;
 
     /**
      * Border, der um die Komponente herum gezeichnet werden soll. Das Icon befindet sich innerhalb der Grenzen des
      * äußeren Borders.
      */
-    private Border outerBorder;
+    private final Border outerBorder;
 
     /**
      * Abstand des Icons vom äußeren Border.
      */
-    private int space;
+    private final int space;
 
     /**
      * Erstellt einen Border mit den übergebenen Werten.

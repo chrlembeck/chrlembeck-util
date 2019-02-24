@@ -5,12 +5,12 @@ package de.chrlembeck.util.format;
  * 
  * @author Christpoh Lembeck
  */
-public final class TimeFormatter {
+public final class TimeFormatterHelper {
 
     /**
      * Provater Konstruktor zur Verhinderung von Instanzen der Klasse.
      */
-    private TimeFormatter() {
+    private TimeFormatterHelper() {
     }
 
     /**

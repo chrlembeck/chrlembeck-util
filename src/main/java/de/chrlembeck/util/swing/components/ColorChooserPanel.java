@@ -753,7 +753,7 @@ public final class ColorChooserPanel extends JPanel {
         /**
          * Obergrenze für die akzeptierten Eingaben.
          */
-        private int maxValue;
+        private final int maxValue;
 
         /**
          * Erstellt einen neuen Formatter mit der gewünschten Obergrenze für die eingegebenen Zahlen

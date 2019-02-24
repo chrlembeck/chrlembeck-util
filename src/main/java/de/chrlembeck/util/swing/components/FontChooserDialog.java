@@ -419,12 +419,12 @@ public final class FontChooserDialog extends JDialog {
         /**
          * Anzuzeigende Schriftgröße in PT.
          */
-        private float size;
+        private final float size;
 
         /**
          * Zur Darstellung verwendetes Zahlenformat.
          */
-        private NumberFormat numberFormat;
+        private final NumberFormat numberFormat;
 
         /**
          * Erstellt den Wrapper für die übergbene Schriftgröße.
