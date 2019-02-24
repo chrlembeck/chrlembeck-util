@@ -600,8 +600,8 @@ public final class FontChooserDialog extends JDialog {
      *            Wird nicht verwendet.
      */
     public static void main(final String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            System.out.println(openFontDialog(null, "Schriftart", new Font(Font.SERIF, Font.ITALIC, 36)));
-        });
+        SwingUtilities.invokeLater(() ->
+            openFontDialog(null, "Schriftart", new Font(Font.SERIF, Font.ITALIC, 36))
+        );
     }
 }

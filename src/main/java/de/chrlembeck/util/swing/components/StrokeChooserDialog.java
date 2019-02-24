@@ -621,7 +621,7 @@ public final class StrokeChooserDialog extends JDialog {
      *            Wird nicht verwendet.
      */
     public static void main(final String[] args) {
-        SwingUtilities.invokeLater(() -> System.out.println(openStrokeDialog(new JFrame(), "Linienstil", new BasicStroke())));
+        SwingUtilities.invokeLater(() -> openStrokeDialog(new JFrame(), "Linienstil", new BasicStroke()));
     }
 
     /**

@@ -152,7 +152,7 @@
                 <configuration>
                     <verbose>true</verbose>
                     <!--<failurePriority>5</failurePriority>-->
-                    <failurePriority>1</failurePriority>
+                    <failurePriority>2</failurePriority>
                     <excludes>
                         <exclude>**/generated/*.java</exclude>
                     </excludes>

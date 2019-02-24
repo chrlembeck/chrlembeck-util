@@ -128,22 +128,6 @@ public class ColorCircle extends JComponent {
     }
 
     /**
-     * Dient dem Testen der Komponente.
-     * 
-     * @param args
-     *            Wird nicht verwendet.
-     */
-    public static void main(final String[] args) {
-        System.out.println(getHSV(255, 0, 0));
-        System.out.println(getHSV(0, 255, 0));
-        System.out.println(getHSV(0, 0, 255));
-        System.out.println(getHSV(255, 255, 0));
-        System.out.println(getHSV(0, 255, 255));
-        System.out.println(getHSV(255, 0, 255));
-        System.out.println(getHSV(124, 130, 120));
-    }
-
-    /**
      * Berechnet eine RGB-Farbe anhand der HSV-Farbkoordinaten.
      * 
      * @param hsv

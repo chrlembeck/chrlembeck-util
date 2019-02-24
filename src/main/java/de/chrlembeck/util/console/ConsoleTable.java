@@ -47,7 +47,7 @@ public class ConsoleTable implements Serializable {
     /**
      * Aktuelle Breite der Tabellenspalten.
      */
-    private volatile int[] columnWidths;
+    private transient int[] columnWidths;
 
     /**
      * Speichert die Zeilen der Tabelle. Jede Zeile hat die gleiche Anzahl an Elementen (Spalten).
