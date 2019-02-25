@@ -16,7 +16,7 @@ import java.util.function.Predicate;
 public final class AlgorithmUtils {
 
     /**
-     * private constructor
+     * private constructor.
      */
     private AlgorithmUtils() {
     }
@@ -37,18 +37,18 @@ public final class AlgorithmUtils {
      *            beendet und die bis zur Erreichung des gefundenen Zustands durchlaufenen Zustände werden als Ergebnis
      *            zurückgegeben.
      * 
-     * @param <State>
+     * @param <StateT>
      *            Typ der Objekte für die Speicherung der Zwischenzustände.
      * @return Liste der bis zum Erreichen des gesuchten Zustands durchlaufenen Zwischenzustände inklusive Start- und
      *         Zielzustand. Null, falls kein erzeugter Zustand dem Suchkriterium entsprochen hat.
      */
-    public static final <State> List<State> breadthFirstSearch(final State state,
-            final Function<StateWrapper<State>, Iterable<State>> stateProducer,
-            final Consumer<StateWrapper<State>> consumer, final Predicate<StateWrapper<State>> acceptanceCriterion) {
+    public static final <StateT> List<StateT> breadthFirstSearch(final StateT state,
+            final Function<StateWrapper<StateT>, Iterable<StateT>> stateProducer,
+            final Consumer<StateWrapper<StateT>> consumer, final Predicate<StateWrapper<StateT>> acceptanceCriterion) {
         // Queue zur Aufbewahrung der noch zu verarbeitenden Zwischenzustände.
-        final Queue<StateWrapper<State>> queue = new LinkedList<>();
+        final Queue<StateWrapper<StateT>> queue = new LinkedList<>();
         // Referenz auf den als nächstes zu Verarbeitenden Zustand.
-        StateWrapper<State> currentState = new StateWrapper<>(state, null);
+        StateWrapper<StateT> currentState = new StateWrapper<>(state, null);
         // Queue mit dem Startzustand befüllen, damit mit diesem begonnen werden kann.
         queue.add(currentState);
         // Falls gewünscht, aktuellen Zustand an einen Consumer übermitteln.
@@ -60,12 +60,12 @@ public final class AlgorithmUtils {
             // nächsten aktuellen Zustand aus der Wareschlange nehmen.
             currentState = queue.poll();
             // neue Zwischenzustände auf Grundlage des aktuellen Zustand ermitteln lassen.
-            final Iterable<State> possibleStates = stateProducer.apply(currentState);
+            final Iterable<StateT> possibleStates = stateProducer.apply(currentState);
             // die neuen Zwischenzustände verarbeiten
-            for (final State possibleState : possibleStates) {
+            for (final StateT possibleState : possibleStates) {
                 // Die erzeugten Zustände in den Wrapper packen, damit ihre Verbindung zu ihren Vorgängern abfragbar
                 // bleiben.
-                final StateWrapper<State> newState = new StateWrapper<>(possibleState, currentState);
+                final StateWrapper<StateT> newState = new StateWrapper<>(possibleState, currentState);
                 // Falls gewünscht, aktuellen Zustand an einen Consumer übermitteln.
                 if (consumer != null) {
                     consumer.accept(newState);
@@ -91,20 +91,20 @@ public final class AlgorithmUtils {
      * 
      * @author Christoph Lembeck
      *
-     * @param <State>
+     * @param <StateT>
      *            Typ des zu speichernden Zustand-Objekts.
      */
-    public static class StateWrapper<State> {
+    public static class StateWrapper<StateT> {
 
         /**
          * Referenz auf den hinterlegten Zustand.
          */
-        private final State state;
+        private final StateT state;
 
         /**
          * Referenz auf einen ggf. vorhandenen Vorgänger dieses Zustands.
          */
-        private final StateWrapper<State> predecessor;
+        private final StateWrapper<StateT> predecessor;
 
         /**
          * Erzeugt einen neuen Wrapper um den übergebenen Zustand mit Referenz auf den übergebenen Vorgänger.
@@ -114,7 +114,7 @@ public final class AlgorithmUtils {
          * @param predecessor
          *            Referenz auf einen ggf. vorhandenen Vorgängerzustand.
          */
-        StateWrapper(final State state, final StateWrapper<State> predecessor) {
+        StateWrapper(final StateT state, final StateWrapper<StateT> predecessor) {
             this.state = state;
             this.predecessor = predecessor;
         }
@@ -124,7 +124,7 @@ public final class AlgorithmUtils {
          * 
          * @return Im Wrapper enthaltenes Zustands-Objekt.
          */
-        public State getState() {
+        public StateT getState() {
             return state;
         }
 
@@ -133,7 +133,7 @@ public final class AlgorithmUtils {
          * 
          * @return Referenz auf den Vorgängerzustand oder null, falls kein solcher existiert.
          */
-        public StateWrapper<State> getPredecessor() {
+        public StateWrapper<StateT> getPredecessor() {
             return predecessor;
         }
 
@@ -143,8 +143,8 @@ public final class AlgorithmUtils {
          * 
          * @return Liste der Zustände vom Ausgang bis zum Ziel.
          */
-        public List<State> getStates() {
-            final List<State> stateList;
+        public List<StateT> getStates() {
+            final List<StateT> stateList;
             if (predecessor == null) {
                 stateList = new ArrayList<>();
             } else {

@@ -1,5 +1,11 @@
 package de.chrlembeck.util.swing.components;
 
+import de.chrlembeck.util.lang.StringUtils;
+import de.chrlembeck.util.swing.SimpleDocumentListener;
+import de.chrlembeck.util.swing.SwingUtil;
+import de.chrlembeck.util.swing.action.DefaultAction;
+import de.chrlembeck.util.swing.formatter.BackgroundModifier;
+import de.chrlembeck.util.swing.formatter.FormattedTextFieldVerifier;
 import java.awt.BasicStroke;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -23,7 +29,6 @@ import java.text.ParseException;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Vector;
-
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
@@ -45,13 +50,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.event.DocumentListener;
-
-import de.chrlembeck.util.lang.StringUtils;
-import de.chrlembeck.util.swing.SimpleDocumentListener;
-import de.chrlembeck.util.swing.SwingUtil;
-import de.chrlembeck.util.swing.action.DefaultAction;
-import de.chrlembeck.util.swing.formatter.BackgroundModifier;
-import de.chrlembeck.util.swing.formatter.FormattedTextFieldVerifier;
 
 /**
  * dialog zur Auswahl eines Linienstils zum Zeichnen von Linien auf Graphics2D-Objekten. Aus der in diesem Dialog
@@ -486,7 +484,7 @@ public final class StrokeChooserDialog extends JDialog {
     }
 
     /**
-     * Hilfsobjekt zur Speicherung von Optionen für das Zeichnen von gestruchelten Linien (Morsezeichen)
+     * Hilfsobjekt zur Speicherung von Optionen für das Zeichnen von gestruchelten Linien (Morsezeichen).
      *
      * @author Christoph Lembeck
      */

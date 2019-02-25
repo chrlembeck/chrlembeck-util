@@ -1,5 +1,7 @@
 package de.chrlembeck.util.swing.components;
 
+import de.chrlembeck.util.swing.SwingUtil;
+import de.chrlembeck.util.swing.action.DefaultAction;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -9,15 +11,11 @@ import java.awt.Frame;
 import java.awt.Window;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
-
-import de.chrlembeck.util.swing.SwingUtil;
-import de.chrlembeck.util.swing.action.DefaultAction;
 
 /**
  * Swing-Dialog zur Auswahl einer Farbe anhand des HSV-Farbsystems.
@@ -177,11 +175,11 @@ public class ColorChooserDialog extends JDialog {
         buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.add(new JButton(
                 new DefaultAction("Abbrechen", null, null, null, null, null, null, null,
-                        (actionEvent) -> cancelDialog())));
+                    (actionEvent) -> cancelDialog())));
         buttonPanel
                 .add(new JButton(
                         new DefaultAction("OK", null, null, null, null, null, null, null,
-                                (actionEvent) -> okDialog())));
+                            (actionEvent) -> okDialog())));
         pack();
     }
 

@@ -1,5 +1,11 @@
 package de.chrlembeck.util.swing.components;
 
+import de.chrlembeck.util.swing.SimpleDocumentListener;
+import de.chrlembeck.util.swing.SwingUtil;
+import de.chrlembeck.util.swing.action.DefaultAction;
+import de.chrlembeck.util.swing.components.StrokeChooserDialog.FloatFormatter;
+import de.chrlembeck.util.swing.formatter.BackgroundModifier;
+import de.chrlembeck.util.swing.formatter.FormattedTextFieldVerifier;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -18,7 +24,6 @@ import java.text.NumberFormat;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.Vector;
-
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListCellRenderer;
 import javax.swing.JButton;
@@ -35,13 +40,6 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.event.DocumentEvent;
-
-import de.chrlembeck.util.swing.SimpleDocumentListener;
-import de.chrlembeck.util.swing.SwingUtil;
-import de.chrlembeck.util.swing.action.DefaultAction;
-import de.chrlembeck.util.swing.components.StrokeChooserDialog.FloatFormatter;
-import de.chrlembeck.util.swing.formatter.BackgroundModifier;
-import de.chrlembeck.util.swing.formatter.FormattedTextFieldVerifier;
 
 /**
  * Dialog zur Auswahl einer Schriftart aus einer Liste aller installierten Schriftarten.
@@ -275,7 +273,7 @@ public final class FontChooserDialog extends JDialog {
         add(mainPanel, BorderLayout.CENTER);
         buttonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.add(new JButton(new DefaultAction("Abbrechen", null, null, null, null, null, null, null,
-                (event) -> cancelDialog())));
+            (event) -> cancelDialog())));
         buttonPanel
                 .add(new JButton(
                         new DefaultAction("OK", null, null, null, null, null, null, null, (event) -> okDialog())));
@@ -309,11 +307,11 @@ public final class FontChooserDialog extends JDialog {
         }
         nameList = new JList<Font>(fonts);
         sizeList = new JList<SizeWrapper>(new SizeWrapper[] { new SizeWrapper(8), new SizeWrapper(9),
-                new SizeWrapper(10),
-                new SizeWrapper(11), new SizeWrapper(12), new SizeWrapper(14), new SizeWrapper(16), new SizeWrapper(18),
-                new SizeWrapper(20), new SizeWrapper(22), new SizeWrapper(24), new SizeWrapper(28), new SizeWrapper(32),
-                new SizeWrapper(36), new SizeWrapper(40), new SizeWrapper(48), new SizeWrapper(56), new SizeWrapper(64),
-                new SizeWrapper(80), new SizeWrapper(96) });
+            new SizeWrapper(10),
+            new SizeWrapper(11), new SizeWrapper(12), new SizeWrapper(14), new SizeWrapper(16), new SizeWrapper(18),
+            new SizeWrapper(20), new SizeWrapper(22), new SizeWrapper(24), new SizeWrapper(28), new SizeWrapper(32),
+            new SizeWrapper(36), new SizeWrapper(40), new SizeWrapper(48), new SizeWrapper(56), new SizeWrapper(64),
+            new SizeWrapper(80), new SizeWrapper(96) });
         styleList = new JList<StyleWrapper>(StyleWrapper.getStyles());
         final JScrollPane fontScrollPane = new JScrollPane(nameList);
         final JScrollPane sizeScrollPane = new JScrollPane(sizeList);
@@ -486,7 +484,7 @@ public final class FontChooserDialog extends JDialog {
          */
         public static StyleWrapper[] getStyles() {
             return new StyleWrapper[] { new StyleWrapper(Font.PLAIN), new StyleWrapper(Font.ITALIC),
-                    new StyleWrapper(Font.BOLD), new StyleWrapper(Font.BOLD + Font.ITALIC) };
+                new StyleWrapper(Font.BOLD), new StyleWrapper(Font.BOLD + Font.ITALIC) };
         }
 
         /**

@@ -1,5 +1,7 @@
 package de.chrlembeck.util.swing.components.plaf;
 
+import de.chrlembeck.util.swing.components.ColorCircle;
+import de.chrlembeck.util.swing.components.ColorCircle.Hsv;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -24,11 +26,8 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.ColorModel;
 import java.awt.image.Raster;
 import java.awt.image.WritableRaster;
-
 import javax.swing.JComponent;
 
-import de.chrlembeck.util.swing.components.ColorCircle;
-import de.chrlembeck.util.swing.components.ColorCircle.HSV;
 
 /**
  * Standardimplementierung der UI-Komponente zur Darstellung eines Farbkreises zur Farbauswahl.
@@ -42,9 +41,6 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
      */
     private static final int BELT_WIDTH = 20;
 
-    /**
-     * 
-     */
     ColorChooserMouseListener mouseListener = new ColorChooserMouseListener();
 
     /**
@@ -98,7 +94,7 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
             } else {
                 pressedInBelt = false;
                 if (isInColorTriangle(circle, point.x, point.y)) {
-                    final HSV hsv = getHSVFromcolorTriangle(circle, point.x, point.y);
+                    final Hsv hsv = getHsvFromcolorTriangle(circle, point.x, point.y);
                     if (hsv != null) {
                         circle.setSaturation(hsv.getSaturation());
                         circle.setBlacknessValue(hsv.getBlacknessValue());
@@ -120,7 +116,7 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
             if (pressedInBelt) {
                 circle.setHue(getHueFromColorBelt(circle, point.x, point.y));
             } else if (pressedInTriangle) {
-                final HSV hsv = getHSVFromcolorTriangle(circle, point.x, point.y);
+                final Hsv hsv = getHsvFromcolorTriangle(circle, point.x, point.y);
                 if (hsv != null) {
                     circle.setSaturation(hsv.getSaturation());
                     circle.setBlacknessValue(hsv.getBlacknessValue());
@@ -143,7 +139,7 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
      * 
      * @author Christoph Lembeck
      */
-    public static class HSVGradientPaintContext implements PaintContext {
+    public static class HsvGradientPaintContext implements PaintContext {
 
         /**
          * Position der schwarzen Ecke des Dreiecks.
@@ -227,7 +223,7 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
          * @param hue
          *            Farbwert für das zu zeichnende Dreieck.
          */
-        public HSVGradientPaintContext(final Point2D top, final Point2D white, final Point2D black, final int hue) {
+        public HsvGradientPaintContext(final Point2D top, final Point2D white, final Point2D black, final int hue) {
             this.top = top;
             this.white = white;
             this.black = black;
@@ -285,7 +281,7 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
         private int[] getColor(final int xPos, final int yPos) {
             final int blacknessValue = getBlacknessValue(xPos, yPos);
             final int saturation = getSaturation(xPos, yPos);
-            final Color color = ColorCircle.getColorByHSV(hue, saturation, blacknessValue);
+            final Color color = ColorCircle.getColorByHsv(hue, saturation, blacknessValue);
             return new int[] { color.getRed(), color.getGreen(), color.getBlue(), 255 };
         }
 
@@ -346,7 +342,7 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
      * {@inheritDoc}
      */
     @Override
-    public HSV getHSVFromcolorTriangle(final ColorCircle circle, final int xPos, final int yPos) {
+    public Hsv getHsvFromcolorTriangle(final ColorCircle circle, final int xPos, final int yPos) {
         final int hue = circle.getHue();
         final Insets insets = circle.getInsets();
         final int width = circle.getWidth() - insets.left - insets.right;
@@ -358,10 +354,10 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
         final Point2D top = getTopPoint(center, radius, hue);
         final Point2D white = getWhitePoint(center, radius, hue);
         final Point2D black = getBlackPoint(center, radius, hue);
-        final HSVGradientPaintContext context = new HSVGradientPaintContext(top, white, black, hue);
+        final HsvGradientPaintContext context = new HsvGradientPaintContext(top, white, black, hue);
         final int saturation = context.getSaturation(xPos, yPos);
         final int blacknessValue = context.getBlacknessValue(xPos, yPos);
-        return new HSV(hue, saturation, blacknessValue);
+        return new Hsv(hue, saturation, blacknessValue);
     }
 
     /**
@@ -546,7 +542,7 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
         for (int i = 0; i < anz; i++) {
             final Arc2D arc = new Arc2D.Float(center.x - radius, center.y - radius, size, size, -i * 360 / anz + 90, 360
                     / anz + eps, Arc2D.PIE);
-            g2d.setColor(ColorCircle.getColorByHSV(i * 360 / anz, 255, 255));
+            g2d.setColor(ColorCircle.getColorByHsv(i * 360 / anz, 255, 255));
             g2d.fill(arc);
         }
         g2d.setColor(circle.getBackground());
@@ -574,7 +570,7 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
 
         final Path2D triangle = getTriangle(top, white, black);
         g2d.setColor(Color.WHITE);
-        g2d.setPaint(new HSVGradientPaint(top, white, black, hue));
+        g2d.setPaint(new HsvGradientPaint(top, white, black, hue));
         g2d.fill(triangle);
         if (blacknessValue - saturation / 3 < 127) {
             g2d.setColor(Color.WHITE);
@@ -591,7 +587,7 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
      *
      * @author Christoph Lembeck
      */
-    static class HSVGradientPaint implements Paint {
+    static class HsvGradientPaint implements Paint {
 
         /**
          * Position der schwarzen Ecke des Dreiecks.
@@ -625,7 +621,7 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
          * @param hue
          *            Farbwert für die Farbe der farbigen Ecke des Dreiecks.
          */
-        public HSVGradientPaint(final Point2D top, final Point2D white, final Point2D black, final int hue) {
+        public HsvGradientPaint(final Point2D top, final Point2D white, final Point2D black, final int hue) {
             super();
             this.top = top;
             this.white = white;
@@ -640,7 +636,7 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
         public PaintContext createContext(final ColorModel colorModel, final Rectangle deviceBounds,
                 final Rectangle2D userBounds,
                 final AffineTransform xform, final RenderingHints hints) {
-            return new HSVGradientPaintContext(top, white, black, hue);
+            return new HsvGradientPaintContext(top, white, black, hue);
         }
 
         /**

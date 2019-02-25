@@ -18,7 +18,7 @@ import javax.swing.text.JTextComponent;
 public class FormatterInputVerifier extends InputVerifier {
 
     /**
-     * Der zur Verifizierung intern verwendete Formatter
+     * Der zur Verifizierung intern verwendete Formatter.
      */
     private final AbstractFormatter formatter;
 
@@ -28,7 +28,7 @@ public class FormatterInputVerifier extends InputVerifier {
     private final InputVerifierComponentModifier modifier;
 
     /**
-     * Erzeugt einen neuen Verifier mit dem übergebenen formatter
+     * Erzeugt einen neuen Verifier mit dem übergebenen formatter.
      * 
      * @param formatter
      *            Formatter für die Konvertierung der Eingaben.

@@ -1,9 +1,8 @@
 package de.chrlembeck.util.swing.components.plaf;
 
-import javax.swing.plaf.ComponentUI;
-
 import de.chrlembeck.util.swing.components.ColorCircle;
-import de.chrlembeck.util.swing.components.ColorCircle.HSV;
+import de.chrlembeck.util.swing.components.ColorCircle.Hsv;
+import javax.swing.plaf.ComponentUI;
 
 /**
  * Oberklasse für die UIComponents zur Darstellung und Steuerung der Farbauswahlkomponente ColorCircle.
@@ -52,7 +51,7 @@ public abstract class AbstractColorCircleUI extends ComponentUI {
      *            Y-Koordinste des zu prüfenden Punktes.
      * @return Farbwert an der angegebenen Stelle in Form einer HSV-Angabe.
      */
-    abstract HSV getHSVFromcolorTriangle(ColorCircle circle, int xPos, int yPos);
+    abstract Hsv getHsvFromcolorTriangle(ColorCircle circle, int xPos, int yPos);
 
     /**
      * Ermittelt den Farbwert im Sinne des HSV-Farbraums anhand der Koordinaten auf einem Farbkreis.

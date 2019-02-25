@@ -1,12 +1,10 @@
 package de.chrlembeck.util.swing.components;
 
-import java.awt.Color;
-
-import javax.swing.JComponent;
-import javax.swing.UIManager;
-
 import de.chrlembeck.util.swing.components.plaf.AbstractColorCircleUI;
 import de.chrlembeck.util.swing.components.plaf.DefaultColorCircleUI;
+import java.awt.Color;
+import javax.swing.JComponent;
+import javax.swing.UIManager;
 
 /**
  * Farbkreis für die Anzeige und Auswahl einer Farbe anhand des HSV-Farbschemas.
@@ -106,7 +104,7 @@ public class ColorCircle extends JComponent {
      *            Blauwert der Farbe.
      * @return Farbe in Form von HSV-Koordinaten.
      */
-    public static HSV getHSV(final int red, final int green, final int blue) {
+    public static Hsv getHsv(final int red, final int green, final int blue) {
         final int hue;
         final int saturation;
         final int max = Math.max(red, Math.max(green, blue));
@@ -124,7 +122,7 @@ public class ColorCircle extends JComponent {
                 hue = 240 + (60 * (red - green)) / (max - min);
             }
         }
-        return new HSV(hue, saturation, max);
+        return new Hsv(hue, saturation, max);
     }
 
     /**
@@ -134,8 +132,8 @@ public class ColorCircle extends JComponent {
      *            HSV-Darstellung der Farbe.
      * @return RGB-Darstellung der Farbe.
      */
-    public Color getColor(final HSV hsv) {
-        return getColorByHSV(hsv.getHue(), hsv.getSaturation(), hsv.getBlacknessValue());
+    public Color getColor(final Hsv hsv) {
+        return getColorByHsv(hsv.getHue(), hsv.getSaturation(), hsv.getBlacknessValue());
     }
 
     /**
@@ -144,7 +142,7 @@ public class ColorCircle extends JComponent {
      * 
      * @author Christoph Lembeck
      */
-    public static class HSV {
+    public static class Hsv {
 
         /**
          * Farbwert oder Farbwinkel auf dem Farbkreis.
@@ -171,7 +169,7 @@ public class ColorCircle extends JComponent {
          * @param value
          *            Hellwert. 0 entspricht Schwarz, 255 der vollen Farbhelligkeit.
          */
-        public HSV(final int hue, final int saturation, final int value) {
+        public Hsv(final int hue, final int saturation, final int value) {
             this.hue = hue;
             this.saturation = saturation;
             this.value = value;
@@ -221,7 +219,7 @@ public class ColorCircle extends JComponent {
      *            Hellwert. 0 entspricht Schwarz, 255 der vollen Farbhelligkeit.
      * @return RGB-Darstellung der Farbe.
      */
-    public static Color getColorByHSV(int hue, final int saturation, final int value) {
+    public static Color getColorByHsv(int hue, final int saturation, final int value) {
         hue = hue % 360;
         final int innerColorIndex = hue % 60;
         final int firstValue = (value * (255 - saturation)) / 255;
@@ -251,8 +249,8 @@ public class ColorCircle extends JComponent {
      * 
      * @return Farbe in den RGB-Farbkoordinaten.
      */
-    public Color getColorByHSV() {
-        return getColorByHSV(hue, saturation, blacknessValue);
+    public Color getColorByHsv() {
+        return getColorByHsv(hue, saturation, blacknessValue);
     }
 
     /**

@@ -1,12 +1,10 @@
 package de.chrlembeck.util.swing.icon;
 
-import java.awt.Color;
-import java.awt.Paint;
-
-import javax.swing.Icon;
-
 import de.chrlembeck.util.swing.icon.NavigationIcon.Direction;
 import de.chrlembeck.util.swing.icon.ZoomIcon.Sign;
+import java.awt.Color;
+import java.awt.Paint;
+import javax.swing.Icon;
 
 /**
  * Factoryklasse zur Erzeugung einiger skalierbarer Icons.

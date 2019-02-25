@@ -15,10 +15,10 @@ public class CollectionsUtil {
      * 
      * @param collection
      *            Collection to be checked.
-     * @return {@code true} if the collection is {@code null} or empty, {@code false} if it is not null and contains any
-     *         data.
      * @param <E>
      *            Type of the elements in the collection.
+     * @return {@code true} if the collection is {@code null} or empty, {@code false} if it is not null and contains any
+     *         data.
      * @see Collection#isEmpty()
      */
     public static <E> boolean isNullOrEmpty(final Collection<E> collection) {

@@ -1,5 +1,6 @@
 package de.chrlembeck.util.swing.border;
 
+import de.chrlembeck.util.lang.StringUtils;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Component;
@@ -18,11 +19,8 @@ import java.awt.geom.Area;
 import java.awt.geom.Rectangle2D;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.geom.RoundRectangle2D.Float;
-
 import javax.swing.JComponent;
 import javax.swing.border.Border;
-
-import de.chrlembeck.util.lang.StringUtils;
 
 /**
  * Rahmen für die Verwendung mit beliebigen Swing-Komponenten. Der Rahmen besitzt abgerundete Ecken und optional einen

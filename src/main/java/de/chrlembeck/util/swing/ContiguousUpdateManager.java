@@ -141,7 +141,7 @@ public class ContiguousUpdateManager extends UndoManager {
     }
 
     /**
-     * Edit-Objekt für die Zusammenfassung mehrerer zusammenhängender Änderungen
+     * Edit-Objekt für die Zusammenfassung mehrerer zusammenhängender Änderungen.
      * 
      * @author Christoph Lembeck
      */

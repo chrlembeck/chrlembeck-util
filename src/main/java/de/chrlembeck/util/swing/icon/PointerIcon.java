@@ -28,17 +28,17 @@ public class PointerIcon implements Icon {
     /**
      * Höhe des Icons in Pixeln.
      */
-    final private int iconHeight;
+    private final int iconHeight;
 
     /**
      * Größe des dargestellten Zeigers in Pixeln.
      */
-    final private int pointerSize;
+    private final int pointerSize;
 
     /**
      * Breite des Icons in Pixeln.
      */
-    final private int iconWidth;
+    private final int iconWidth;
 
     /**
      * Füllstil für den Zeiger.

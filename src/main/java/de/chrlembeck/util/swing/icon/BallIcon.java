@@ -25,7 +25,7 @@ import javax.swing.Icon;
 public class BallIcon implements Icon {
 
     /**
-     * Höhe und Breite des Icons
+     * Höhe und Breite des Icons.
      */
     private int size;
 
@@ -66,7 +66,7 @@ public class BallIcon implements Icon {
 
     /**
      * Erstellt ein neues Icon mit den übergebenen Werten.
-     * 
+     *
      * @param size
      *            Höhe und Breite des Icons.
      * @param color
@@ -99,7 +99,7 @@ public class BallIcon implements Icon {
 
     /**
      * Gibt die Größe des Icons in Pixeln zurück.
-     * 
+     *
      * @return Größe des Icons in Pixeln.
      */
     public int getSize() {
@@ -108,7 +108,7 @@ public class BallIcon implements Icon {
 
     /**
      * Git die Füllfarbe für das Icon zurück.
-     * 
+     *
      * @return Füllfarbe für das Icon.
      */
     public Color getColor() {
@@ -117,7 +117,7 @@ public class BallIcon implements Icon {
 
     /**
      * Gibt die Rahmenfare für das Icon zurück.
-     * 
+     *
      * @return Farbe des Iconrands.
      */
     public Color getBorderColor() {
@@ -183,7 +183,7 @@ public class BallIcon implements Icon {
 
     /**
      * Zeichnet eine Kugel in das übergebene Graphics-Objekt.
-     * 
+     *
      * @param graphics
      *            Objekt, mit dem die Kugel gezeichnet werden soll.
      * @param centerX
@@ -213,7 +213,7 @@ public class BallIcon implements Icon {
 
     /**
      * Erstellt den Fülleffekt für die Darstellung einer Kugel mit dreidimensionalem Lichteffekt.
-     * 
+     *
      * @param centerX
      *            X-Koordinate des Kugelmittelpunkts.
      * @param centerY
@@ -231,7 +231,7 @@ public class BallIcon implements Icon {
     private static RadialGradientPaint createPaint(final float centerX, final float centerY, final float radius,
             final Color lightColor,
             final Color color, final Color darkColor) {
-        return new RadialGradientPaint(centerX - 0.4f * radius, centerY - 0.4f * radius, radius * 2, new float[] { 0f,
-                0.3f, 1f }, new Color[] { lightColor, color, darkColor });
+        return new RadialGradientPaint(centerX - 0.4f * radius, centerY - 0.4f * radius,
+            radius * 2, new float[] { 0f, 0.3f, 1f }, new Color[] { lightColor, color, darkColor });
     }
 }

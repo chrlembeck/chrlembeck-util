@@ -1,13 +1,15 @@
 package de.chrlembeck.util.console;
 
+import de.chrlembeck.util.lang.StringUtils;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import de.chrlembeck.util.lang.StringUtils;
 
 /**
+ * Hilfsklase zur Ausgabe einer spaltenweise ausgerichteten Tabelle auf der Konsole.
+ *
  * @author Christoph Lembeck
  */
 @SuppressWarnings("PMD.GodClass")
@@ -55,7 +57,7 @@ public class ConsoleTable implements Serializable {
     private final List<String[]> rows;
 
     /**
-     * Konstanten für die Ausrichtung der Inhalte in den Tabellenzellen und Spaltenüberschriften
+     * Konstanten für die Ausrichtung der Inhalte in den Tabellenzellen und Spaltenüberschriften.
      *
      * @author Christoph Lembeck
      */
@@ -67,7 +69,7 @@ public class ConsoleTable implements Serializable {
         LEFT,
 
         /**
-         * Zentrierte Ausrichtung
+         * Zentrierte Ausrichtung.
          */
         CENTER,
 
@@ -566,7 +568,7 @@ public class ConsoleTable implements Serializable {
      * @param count
      *            Anzahl, in der das Zeichen hinzugefügt werden soll.
      */
-    protected final static void append(final StringBuilder stringBuilder, final char character, final int count) {
+    protected static final void append(final StringBuilder stringBuilder, final char character, final int count) {
         for (int i = 0; i < count; i++) {
             stringBuilder.append(character);
         }
@@ -677,7 +679,7 @@ public class ConsoleTable implements Serializable {
      * @param alignment
      *            Ausrichtung der Inhalte der Spalte.
      */
-    protected final static void appendValue(final StringBuilder stringBuilder, final String text, final int columnWidth,
+    protected static final void appendValue(final StringBuilder stringBuilder, final String text, final int columnWidth,
             final Alignment alignment) {
         final int length = StringUtils.lengthNullToZero(text);
         final int space = columnWidth - length;
@@ -747,17 +749,17 @@ public class ConsoleTable implements Serializable {
      */
     public BorderConfiguration createUnicodeBorderCofiguration(final boolean roundCorner) {
         final BorderConfiguration config = new BorderConfiguration();
-        config.setBottomConnector('\u2534');
-        config.setTopConnector('\u252C');
-        config.setLeftConnector('\u251C');
-        config.setRightConnector('\u2524');
-        config.setVerticalLine('\u2502');
-        config.setHorizontalLine('\u2500');
-        config.setTopLeftCorner(roundCorner ? '\u256D' : '\u250C');
-        config.setTopRightCorner(roundCorner ? '\u256E' : '\u2510');
-        config.setBottomLeftCorner(roundCorner ? '\u2570' : '\u2514');
-        config.setBottomRightCorner(roundCorner ? '\u256F' : '\u2518');
-        config.setCrossSymbol('\u253C');
+        config.setBottomConnector('\u2534'); // BOX DRAWINGS LIGHT UP AND HORIZONTAL
+        config.setTopConnector('\u252C'); // BOX DRAWINGS LIGHT DOWN AND HORIZONTAL
+        config.setLeftConnector('\u251C'); // BOX DRAWINGS LIGHT VERTICAL AND RIGHT
+        config.setRightConnector('\u2524'); // BOX DRAWINGS LIGHT VERTICAL AND LEFT
+        config.setVerticalLine('\u2502'); // BOX DRAWINGS LIGHT VERTICAL
+        config.setHorizontalLine('\u2500'); // BOX DRAWINGS LIGHT HORIZONTAL
+        config.setTopLeftCorner(roundCorner ? '\u256D' : '\u250C'); // TOP LEFT CORNER
+        config.setTopRightCorner(roundCorner ? '\u256E' : '\u2510'); // TOP RIGH CORNER
+        config.setBottomLeftCorner(roundCorner ? '\u2570' : '\u2514'); // BOTTOM LEFT CORNER
+        config.setBottomRightCorner(roundCorner ? '\u256F' : '\u2518'); // BOTTOM RIGHT CORNER
+        config.setCrossSymbol('\u253C'); // BOX DRAWINGS LIGHT VERTICAL AND HORIZONTAL
         config.setPrintBottomBorder(true);
         config.setPrintLeftBorder(true);
         config.setPrintRightBorder(true);
@@ -779,17 +781,17 @@ public class ConsoleTable implements Serializable {
      */
     public BorderConfiguration createUnicodeDoubleBorderCofiguration() {
         final BorderConfiguration config = new BorderConfiguration();
-        config.setBottomConnector('\u2569');
-        config.setTopConnector('\u2566');
-        config.setLeftConnector('\u2560');
-        config.setRightConnector('\u2563');
-        config.setVerticalLine('\u2551');
-        config.setHorizontalLine('\u2550');
-        config.setTopLeftCorner('\u2554');
-        config.setTopRightCorner('\u2557');
-        config.setBottomLeftCorner('\u255A');
-        config.setBottomRightCorner('\u255D');
-        config.setCrossSymbol('\u256C');
+        config.setBottomConnector('\u2569'); // BOX DRAWINGS DOUBLE UP AND HORIZONTAL
+        config.setTopConnector('\u2566'); // BOX DRAWINGS DOUBLE DOWN AND HORIZONTAL
+        config.setLeftConnector('\u2560'); // BOX DRAWINGS DOUBLE VERTICAL AND RIGHT
+        config.setRightConnector('\u2563'); // BOX DRAWINGS DOUBLE VERTICAL AND LEFT
+        config.setVerticalLine('\u2551'); // BOX DRAWINGS DOUBLE VERTICAL
+        config.setHorizontalLine('\u2550'); // BOX DRAWINGS DOUBLE HORIZONTAL
+        config.setTopLeftCorner('\u2554'); // BOX DRAWINGS DOUBLE DOWN AND RIGHT
+        config.setTopRightCorner('\u2557'); // BOX DRAWINGS DOUBLE DOWN AND LEFT
+        config.setBottomLeftCorner('\u255A'); // BOX DRAWINGS DOUBLE UP AND RIGHT
+        config.setBottomRightCorner('\u255D'); // BOX DRAWINGS DOUBLE UP AND LEFT
+        config.setCrossSymbol('\u256C'); // BOX DRAWINGS DOUBLE VERTICAL AND HORIZONTAL
         config.setPrintBottomBorder(true);
         config.setPrintLeftBorder(true);
         config.setPrintRightBorder(true);

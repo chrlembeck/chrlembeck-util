@@ -1,5 +1,10 @@
 package de.chrlembeck.util.swing.components;
 
+import de.chrlembeck.util.lang.StringUtils;
+import de.chrlembeck.util.swing.SimpleDocumentListener;
+import de.chrlembeck.util.swing.components.ColorCircle.Hsv;
+import de.chrlembeck.util.swing.formatter.BackgroundModifier;
+import de.chrlembeck.util.swing.formatter.FormatterInputVerifier;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
@@ -14,7 +19,6 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.text.ParseException;
 import java.util.Locale;
-
 import javax.swing.BorderFactory;
 import javax.swing.InputVerifier;
 import javax.swing.JComponent;
@@ -31,11 +35,6 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 
-import de.chrlembeck.util.lang.StringUtils;
-import de.chrlembeck.util.swing.SimpleDocumentListener;
-import de.chrlembeck.util.swing.components.ColorCircle.HSV;
-import de.chrlembeck.util.swing.formatter.BackgroundModifier;
-import de.chrlembeck.util.swing.formatter.FormatterInputVerifier;
 
 /**
  * Panel zur Darstellung einer HSV-Farbauswahl-Komponente.
@@ -540,7 +539,7 @@ public final class ColorChooserPanel extends JPanel {
                 case RED:
                 case GREEN:
                 case BLUE:
-                    HSV hsv = ColorCircle.getHSV(getRed(), getGreen(), getBlue());
+                    Hsv hsv = ColorCircle.getHsv(getRed(), getGreen(), getBlue());
                     hueField.setText(Integer.toString(hsv.getHue()));
                     saturationField.setText(Integer.toString(hsv.getSaturation()));
                     blacknessValueField.setText(Integer.toString(hsv.getBlacknessValue()));
@@ -550,42 +549,42 @@ public final class ColorChooserPanel extends JPanel {
                     break;
                 case HUE:
                     colorCirclePanel.setHue(getHue());
-                    Color color = colorCirclePanel.getColorByHSV();
+                    Color color = colorCirclePanel.getColorByHsv();
                     redField.setText(Integer.toString(color.getRed()));
                     greenField.setText(Integer.toString(color.getGreen()));
                     blueField.setText(Integer.toString(color.getBlue()));
                     break;
                 case SATURATION:
                     colorCirclePanel.setSaturation(getSaturation());
-                    color = colorCirclePanel.getColorByHSV();
+                    color = colorCirclePanel.getColorByHsv();
                     redField.setText(Integer.toString(color.getRed()));
                     greenField.setText(Integer.toString(color.getGreen()));
                     blueField.setText(Integer.toString(color.getBlue()));
                     break;
                 case BLACKNESS_VALUE:
                     colorCirclePanel.setBlacknessValue(getBlacknessValue());
-                    color = colorCirclePanel.getColorByHSV();
+                    color = colorCirclePanel.getColorByHsv();
                     redField.setText(Integer.toString(color.getRed()));
                     greenField.setText(Integer.toString(color.getGreen()));
                     blueField.setText(Integer.toString(color.getBlue()));
                     break;
                 case CIRCLE_HUE:
                     hueField.setText(Integer.toString(value));
-                    color = colorCirclePanel.getColorByHSV();
+                    color = colorCirclePanel.getColorByHsv();
                     redField.setText(Integer.toString(color.getRed()));
                     greenField.setText(Integer.toString(color.getGreen()));
                     blueField.setText(Integer.toString(color.getBlue()));
                     break;
                 case CIRCLE_SATURATION:
                     saturationField.setText(Integer.toString(value));
-                    color = colorCirclePanel.getColorByHSV();
+                    color = colorCirclePanel.getColorByHsv();
                     redField.setText(Integer.toString(color.getRed()));
                     greenField.setText(Integer.toString(color.getGreen()));
                     blueField.setText(Integer.toString(color.getBlue()));
                     break;
                 case CIRCLE_BLACKNESS_VALUE:
                     blacknessValueField.setText(Integer.toString(value));
-                    color = colorCirclePanel.getColorByHSV();
+                    color = colorCirclePanel.getColorByHsv();
                     redField.setText(Integer.toString(color.getRed()));
                     greenField.setText(Integer.toString(color.getGreen()));
                     blueField.setText(Integer.toString(color.getBlue()));
@@ -605,7 +604,7 @@ public final class ColorChooserPanel extends JPanel {
                             redField.setText(Integer.toString(red));
                             greenField.setText(Integer.toString(green));
                             blueField.setText(Integer.toString(blue));
-                            hsv = ColorCircle.getHSV(red, green, blue);
+                            hsv = ColorCircle.getHsv(red, green, blue);
                             hueField.setText(Integer.toString(hsv.getHue()));
                             saturationField.setText(Integer.toString(hsv.getSaturation()));
                             blacknessValueField.setText(Integer.toString(hsv.getBlacknessValue()));
@@ -636,7 +635,7 @@ public final class ColorChooserPanel extends JPanel {
      * Gibt den Hellwert des HSV-Farbmodells für die aktuell ausgewählte Farbe zurück.
      * 
      * @return HSV-Hellwert der Farbe.
-     * @see HSV#getBlacknessValue()
+     * @see Hsv#getBlacknessValue()
      */
     public int getBlacknessValue() {
         try {
@@ -676,7 +675,7 @@ public final class ColorChooserPanel extends JPanel {
      * Gibt den Farbwert (Winkel) des HSV-Farbmodells für die aktuell ausgewählte Farbe zurück.
      * 
      * @return HSV-Farbwert der Farbe.
-     * @see HSV#getHue()
+     * @see Hsv#getHue()
      */
     public int getHue() {
         try {
@@ -703,7 +702,7 @@ public final class ColorChooserPanel extends JPanel {
      * Gibt die Farbsättigung des HSV-Farbmodells für die aktuell ausgewählte Farbe zurück.
      * 
      * @return HSV-Farbsättigung der Farbe.
-     * @see HSV#getSaturation()
+     * @see Hsv#getSaturation()
      */
     public int getSaturation() {
         try {
@@ -756,7 +755,7 @@ public final class ColorChooserPanel extends JPanel {
         private final int maxValue;
 
         /**
-         * Erstellt einen neuen Formatter mit der gewünschten Obergrenze für die eingegebenen Zahlen
+         * Erstellt einen neuen Formatter mit der gewünschten Obergrenze für die eingegebenen Zahlen.
          * 
          * @param max
          *            Obergrenze für akzeptierte Eingaben.
@@ -867,9 +866,6 @@ public final class ColorChooserPanel extends JPanel {
          */
         private static final long serialVersionUID = -1525650966496685186L;
 
-        /**
-         * 
-         */
         @Override
         protected void paintComponent(final Graphics graphics) {
             final Graphics2D g2d = (Graphics2D) graphics;

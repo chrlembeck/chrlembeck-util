@@ -11,8 +11,8 @@ public final class StringUtils {
     /**
      * Hilfs-Array für die formatierung von Bytes als Hexadezimale Darstellung.
      */
-    private static final char[] HEX = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E',
-            'F' };
+    private static final char[] HEX = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+        'A', 'B', 'C', 'D', 'E', 'F' };
 
     /**
      * Gibt true zurück, wenn die Zeichenkette null ist oder kein Zeichen enthält.
