@@ -207,7 +207,7 @@ public final class StrokeChooserDialog extends JDialog {
      * @param initialStroke
      *            Linienzeichenstil, der als Vorauswahl dienen soll.
      */
-    private final void init(final BasicStroke initialStroke) {
+    private void init(final BasicStroke initialStroke) {
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
 
@@ -277,7 +277,7 @@ public final class StrokeChooserDialog extends JDialog {
         miterLimitField.setValue(Float.valueOf(initialStroke.getMiterLimit()));
         miterLimitField.setHorizontalAlignment(SwingConstants.RIGHT);
 
-        @SuppressWarnings("PMD.UseArrayListInsteadOfVector")
+        @SuppressWarnings("PMD.ReplaceVectorWithList")
         final Vector<DashInfo> dashes = new Vector<>();
         dashes.add(new DashInfo(null, 0));
         dashes.add(new DashInfo(new float[] { 1, 1 }, 0));
@@ -391,6 +391,7 @@ public final class StrokeChooserDialog extends JDialog {
          *            Maximalwert für gültige Eingaben.
          */
         public FloatFormatter(final float min, final float max) {
+            super();
             this.min = min;
             this.max = max;
             format = NumberFormat.getInstance(Locale.GERMANY);
@@ -495,14 +496,14 @@ public final class StrokeChooserDialog extends JDialog {
          * 
          * @see BasicStroke#getDashPhase()
          */
-        private float dashPhase;
+        private final float dashPhase;
 
         /**
          * Längendefinitionen für das Muster ger gestrichelten Linie.
          * 
          * @see BasicStroke#getDashArray()
          */
-        private float[] dash;
+        private final float[] dash;
 
         /**
          * Erstellt ein neues Objekt mit der Definition des Linienmusters.
@@ -666,7 +667,7 @@ public final class StrokeChooserDialog extends JDialog {
         /**
          * Aktuelle Linienart.
          */
-        private BasicStroke stroke;
+        private final BasicStroke stroke;
 
         /**
          * Erstellt das Icon für die Darstellung einer Linienart.
@@ -746,7 +747,7 @@ public final class StrokeChooserDialog extends JDialog {
         /**
          * Darzustellende Linienart.
          */
-        private BasicStroke stroke;
+        private final BasicStroke stroke;
 
         /**
          * Erstellt das Icon mit der gewünschten Definition der gestrichelten Linienabstände.

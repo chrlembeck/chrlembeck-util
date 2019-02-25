@@ -36,6 +36,7 @@ public class FormatterInputVerifier extends InputVerifier {
      *            Optional angabe eines Modifiers, der das Textfeld je nach Verifizierungsstatus anpassen kann.
      */
     public FormatterInputVerifier(final AbstractFormatter formatter, final InputVerifierComponentModifier modifier) {
+        super();
         this.formatter = Objects.requireNonNull(formatter);
         this.modifier = modifier;
     }

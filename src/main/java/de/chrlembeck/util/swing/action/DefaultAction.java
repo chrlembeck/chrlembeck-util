@@ -74,6 +74,7 @@ public class DefaultAction extends AbstractAction {
             final Integer displayedMnemonicIndex, final KeyStroke acceleratorKey, final Icon smallIcon,
             final Icon largeIcon,
             final Consumer<ActionEvent> actionConsumer) {
+        super();
         putValue(NAME, name);
         putValue(SHORT_DESCRIPTION, shortDescription);
         putValue(LONG_DESCRIPTION, longDescription);

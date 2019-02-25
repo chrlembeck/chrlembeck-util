@@ -52,6 +52,7 @@ public class IconBorder extends AbstractBorder {
      *            Grenzen des äußeren Borders.
      */
     public IconBorder(final Icon icon, final int space, final Border outerBorder) {
+        super();
         this.icon = icon;
         this.space = space;
         this.outerBorder = outerBorder;

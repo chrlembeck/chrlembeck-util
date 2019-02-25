@@ -52,6 +52,7 @@
         <maven-gpg-plugin-version>1.6</maven-gpg-plugin-version>
         <clover-maven-plugin-version>4.3.1</clover-maven-plugin-version>
         <junit-version>5.4.0</junit-version>
+        <pmdVersion>6.12.0</pmdVersion>
         <maven-site-plugin-version>3.7.1</maven-site-plugin-version>
     </properties>
 
@@ -175,6 +176,30 @@
             </plugin>
 
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <version>3.0.0</version>
+                <executions>
+                    <execution>
+                        <id>validateCheckstyle</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <configLocation>src/test/resources/checkstyle/google_checks.xml</configLocation>
+                            <encoding>UTF-8</encoding>
+                            <consoleOutput>true</consoleOutput>
+                            <failsOnError>true</failsOnError>
+                            <failOnViolation>true</failOnViolation>
+                            <maxAllowedViolations>0</maxAllowedViolations>
+                            <violationSeverity>info</violationSeverity>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
                 <groupId>org.sonatype.plugins</groupId>
                 <artifactId>nexus-staging-maven-plugin</artifactId>
                 <version>${nexus-staging-maven-plugin-version}</version>
@@ -198,6 +223,23 @@
                             <groupId>com.puppycrawl.tools</groupId>
                             <artifactId>checkstyle</artifactId>
                             <version>8.17</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-pmd-plugin</artifactId>
+                    <version>${maven-pmd-plugin-version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>net.sourceforge.pmd</groupId>
+                            <artifactId>pmd-core</artifactId>
+                            <version>${pmdVersion}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>net.sourceforge.pmd</groupId>
+                            <artifactId>pmd-java</artifactId>
+                            <version>${pmdVersion}</version>
                         </dependency>
                     </dependencies>
                 </plugin>

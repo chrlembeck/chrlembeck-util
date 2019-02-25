@@ -28,6 +28,7 @@ public class FormattedTextFieldVerifier extends InputVerifier {
      *            Modifier zur Anpassung der überprüften Textfelder.
      */
     public FormattedTextFieldVerifier(final InputVerifierComponentModifier modifier) {
+        super();
         this.modifier = modifier;
     }
 

@@ -11,7 +11,13 @@ import javax.swing.Icon;
  *
  * @author Christoph Lembeck
  */
-public class PaintedIconsHelper {
+@SuppressWarnings("PMD.TooManyMethods")
+public final class PaintedIconsHelper {
+
+    private PaintedIconsHelper(){
+        // utility class
+    }
+
 
     /**
      * Erzeugt einen farbigen Ball beliebiger Größe.

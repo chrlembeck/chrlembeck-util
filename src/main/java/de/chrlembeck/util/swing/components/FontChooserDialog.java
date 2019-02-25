@@ -147,6 +147,7 @@ public final class FontChooserDialog extends JDialog {
          * Erstellt einen neuen Renderer.
          */
         public FontCellRenderer() {
+            super();
             setOpaque(true);
         }
 
@@ -180,7 +181,7 @@ public final class FontChooserDialog extends JDialog {
         /**
          * Die Auswahl wurde abgebrochen.
          */
-        CANCEL;
+        CANCEL
     }
 
     /**
@@ -257,7 +258,7 @@ public final class FontChooserDialog extends JDialog {
      * @param initialFont
      *            Schriftart, welche als Vorauswahl in dem Dialog angezeigt werden soll.
      */
-    private final void init(final Font initialFont) {
+    private void init(final Font initialFont) {
         setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
         addWindowListener(new WindowAdapter() {
 
@@ -297,9 +298,10 @@ public final class FontChooserDialog extends JDialog {
         final GraphicsEnvironment localGraphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
         final String[] fontFamilies = localGraphicsEnvironment.getAvailableFontFamilyNames();
         Arrays.parallelSort(fontFamilies);
-        @SuppressWarnings("PMD.UseArrayListInsteadOfVector")
+        @SuppressWarnings("PMD.ReplaceVectorWithList")
         final Vector<Font> fonts = new Vector<>(fontFamilies.length);
         for (final String family : fontFamilies) {
+            @SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
             final Font font = new Font(family, Font.PLAIN, 12);
             if (font.canDisplayUpTo(family) == -1) {
                 fonts.add(font);
@@ -334,13 +336,14 @@ public final class FontChooserDialog extends JDialog {
         styleList.setSelectedValue(new StyleWrapper(initialFont.getStyle()), false);
         nameField.setText(initialFont.getFamily());
         int maxHeight = 0;
+        final JLabel testLabel = new JLabel();
         for (final Font font : fonts) {
             if (font.getFamily().equals(initialFont.getFamily())) {
                 nameList.setSelectedValue(font, true);
             }
-            final JLabel label = new JLabel(font.getFamily());
-            label.setFont(font);
-            maxHeight = Math.max(maxHeight, label.getPreferredSize().height);
+            testLabel.setText(font.getFamily());
+            testLabel.setFont(font);
+            maxHeight = Math.max(maxHeight, testLabel.getPreferredSize().height);
         }
         nameList.setCellRenderer(new FontCellRenderer());
         nameList.setFixedCellHeight(maxHeight);
@@ -465,7 +468,7 @@ public final class FontChooserDialog extends JDialog {
         /**
          * Anzuzeigender Schriftstil, wie er im Font-Objekt verwendet wird.
          */
-        private int style;
+        private final int style;
 
         /**
          * Erstellt einen neuen Wrapper zur Anzeige des Schriftstils.
@@ -587,8 +590,7 @@ public final class FontChooserDialog extends JDialog {
         final Font font = nameList.getSelectedValue();
         final int style = styleList.getSelectedValue().getStyle();
         final float size = ((Float) sizeField.getValue()).floatValue();
-        final Font result = font.deriveFont(style, size);
-        return result;
+        return font.deriveFont(style, size);
     }
 
     /**

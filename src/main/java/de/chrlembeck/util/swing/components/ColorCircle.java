@@ -142,6 +142,7 @@ public class ColorCircle extends JComponent {
      * 
      * @author Christoph Lembeck
      */
+    @SuppressWarnings("PMD.ShortClassName")
     public static class Hsv {
 
         /**

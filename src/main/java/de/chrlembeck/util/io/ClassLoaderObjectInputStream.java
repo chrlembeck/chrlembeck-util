@@ -43,8 +43,7 @@ public class ClassLoaderObjectInputStream extends ObjectInputStream {
     protected Class<?> resolveClass(final ObjectStreamClass desc) throws IOException, ClassNotFoundException {
         final String className = desc.getName();
         try {
-            final Class<?> classRef = classLoader.loadClass(className);
-            return classRef;
+            return classLoader.loadClass(className);
         } catch (final ClassNotFoundException cnfe) {
             return super.resolveClass(desc);
         }

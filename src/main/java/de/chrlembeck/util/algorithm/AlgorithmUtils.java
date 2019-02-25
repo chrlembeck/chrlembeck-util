@@ -42,7 +42,7 @@ public final class AlgorithmUtils {
      * @return Liste der bis zum Erreichen des gesuchten Zustands durchlaufenen Zwischenzustände inklusive Start- und
      *         Zielzustand. Null, falls kein erzeugter Zustand dem Suchkriterium entsprochen hat.
      */
-    public static final <StateT> List<StateT> breadthFirstSearch(final StateT state,
+    public static <StateT> List<StateT> breadthFirstSearch(final StateT state,
             final Function<StateWrapper<StateT>, Iterable<StateT>> stateProducer,
             final Consumer<StateWrapper<StateT>> consumer, final Predicate<StateWrapper<StateT>> acceptanceCriterion) {
         // Queue zur Aufbewahrung der noch zu verarbeitenden Zwischenzustände.
@@ -65,6 +65,7 @@ public final class AlgorithmUtils {
             for (final StateT possibleState : possibleStates) {
                 // Die erzeugten Zustände in den Wrapper packen, damit ihre Verbindung zu ihren Vorgängern abfragbar
                 // bleiben.
+                @SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
                 final StateWrapper<StateT> newState = new StateWrapper<>(possibleState, currentState);
                 // Falls gewünscht, aktuellen Zustand an einen Consumer übermitteln.
                 if (consumer != null) {

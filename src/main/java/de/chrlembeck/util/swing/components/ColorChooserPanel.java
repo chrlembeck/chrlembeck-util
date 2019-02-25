@@ -41,7 +41,7 @@ import javax.swing.text.Document;
  *
  * @author LeC
  */
-@SuppressWarnings("PMD.GodClass")
+@SuppressWarnings({"PMD.TooManyMethods"})
 public final class ColorChooserPanel extends JPanel {
 
     /**
@@ -200,6 +200,7 @@ public final class ColorChooserPanel extends JPanel {
      * Erstell ein neues Farbauswahlpanel.
      */
     public ColorChooserPanel() {
+        super();
         init();
     }
 
@@ -330,7 +331,7 @@ public final class ColorChooserPanel extends JPanel {
      * 
      * @return Fertig konfiurierteds Panel für den linken Bereich der Komponente.
      */
-    private final JPanel createLeftPanel() {
+    private JPanel createLeftPanel() {
         final JPanel leftPanel = new JPanel();
         leftPanel.setLayout(new BorderLayout());
         leftPanel.add(createColorCirclePanel(), BorderLayout.CENTER);
@@ -396,7 +397,7 @@ public final class ColorChooserPanel extends JPanel {
      * 
      * @return Fertig konfiguriertes Panel für den rechten bereich der Komponente.
      */
-    private final JPanel createRightPanel() {
+    private JPanel createRightPanel() {
         final JPanel rightPanel = new JPanel();
         rightPanel.setLayout(new GridBagLayout());
         rightPanel.add(createLabel("Ton"), new GridBagConstraints(1, 0, 1, 1, 0, 0, GridBagConstraints.WEST,
@@ -761,6 +762,7 @@ public final class ColorChooserPanel extends JPanel {
          *            Obergrenze für akzeptierte Eingaben.
          */
         public NumberFormatter(final int max) {
+            super();
             this.maxValue = max;
         }
 
@@ -800,7 +802,7 @@ public final class ColorChooserPanel extends JPanel {
     /**
      * Initialisiert die Komponente erstellt die enthaltenen GUI-Komponenten.
      */
-    private final void init() {
+    private void init() {
         inputVerifier255 = new FormatterInputVerifier(new NumberFormatter(255), new BackgroundModifier(Color.orange));
         inputVerifier359 = new FormatterInputVerifier(new NumberFormatter(359), new BackgroundModifier(Color.orange));
         setLayout(new GridBagLayout());
@@ -867,6 +869,7 @@ public final class ColorChooserPanel extends JPanel {
         private static final long serialVersionUID = -1525650966496685186L;
 
         @Override
+        @SuppressWarnings("PMD.OneDeclarationPerLine")
         protected void paintComponent(final Graphics graphics) {
             final Graphics2D g2d = (Graphics2D) graphics;
             final Insets insets = getInsets();

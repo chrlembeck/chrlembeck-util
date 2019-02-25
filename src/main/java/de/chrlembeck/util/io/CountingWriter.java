@@ -10,6 +10,8 @@ import java.io.Writer;
  */
 public class CountingWriter extends Writer {
 
+    private static final char NEW_LINE = '\n';
+
     /**
      * Writer, in den die Zeichen nach dem Zählen geschrieben werden.
      */
@@ -32,6 +34,7 @@ public class CountingWriter extends Writer {
      *            Writer, in den die Zeichen nach dem Zählen geschrieben werden sollen.
      */
     public CountingWriter(final Writer writer) {
+        super();
         this.writer = writer;
     }
 
@@ -43,7 +46,7 @@ public class CountingWriter extends Writer {
         writer.write(cbuf, off, len);
         characterCount += len;
         for (int i = 0; i < len; i++) {
-            if (cbuf[off + i] == '\n') {
+            if (cbuf[off + i] == NEW_LINE) {
                 lineCount++;
             }
         }

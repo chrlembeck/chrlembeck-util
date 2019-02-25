@@ -56,6 +56,7 @@ public class ContiguousUpdateManager extends UndoManager {
      *            Text-Komponente, für die das Undo-Management übernommen werden soll.
      */
     public ContiguousUpdateManager(final JTextComponent textComponent) {
+        super();
         this.textComponent = textComponent;
         textComponent.getDocument().addUndoableEditListener(this);
     }
@@ -161,6 +162,7 @@ public class ContiguousUpdateManager extends UndoManager {
          *            Initiale Änderung für dieses Objekt.
          */
         public ContiguousEdit(final UndoableEdit edit) {
+            super();
             addEdit(edit);
         }
 

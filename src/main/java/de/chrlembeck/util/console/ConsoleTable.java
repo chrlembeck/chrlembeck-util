@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Christoph Lembeck
  */
-@SuppressWarnings("PMD.GodClass")
+@SuppressWarnings({"PMD.ExcessivePulicCount", "PMD.TooManyMethods"})
 public class ConsoleTable implements Serializable {
 
     /**
@@ -84,6 +84,7 @@ public class ConsoleTable implements Serializable {
      *
      * @author Christoph Lembeck
      */
+    @SuppressWarnings({"PMD.TooManyFields", "PMD.DataClass"})
     public static class BorderConfiguration {
 
         /**
@@ -568,7 +569,7 @@ public class ConsoleTable implements Serializable {
      * @param count
      *            Anzahl, in der das Zeichen hinzugefügt werden soll.
      */
-    protected static final void append(final StringBuilder stringBuilder, final char character, final int count) {
+    protected static void append(final StringBuilder stringBuilder, final char character, final int count) {
         for (int i = 0; i < count; i++) {
             stringBuilder.append(character);
         }
@@ -679,7 +680,7 @@ public class ConsoleTable implements Serializable {
      * @param alignment
      *            Ausrichtung der Inhalte der Spalte.
      */
-    protected static final void appendValue(final StringBuilder stringBuilder, final String text, final int columnWidth,
+    protected static void appendValue(final StringBuilder stringBuilder, final String text, final int columnWidth,
             final Alignment alignment) {
         final int length = StringUtils.lengthNullToZero(text);
         final int space = columnWidth - length;

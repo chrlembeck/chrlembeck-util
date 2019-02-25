@@ -144,37 +144,37 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
         /**
          * Position der schwarzen Ecke des Dreiecks.
          */
-        private Point2D black;
+        private final Point2D black;
 
         /**
          * Euklidischer Abstand zwischen schwarzer und weißer Ecke.
          */
-        private float distBlackToTopWhite;
+        private final float distBlackToTopWhite;
 
         /**
          * Euklidischer Abstand zwischen farbiger und weißer Ecke.
          */
-        private float distTopToWhite;
+        private final float distTopToWhite;
 
         /**
          * Differenz der x-Koordinate von der schwarzen zur farbigen Ecke.
          */
-        private float dxBlackToTop;
+        private final float dxBlackToTop;
 
         /**
          * Differenz der y-Koordinate von der schwarzen zur farbigen Ecke.
          */
-        private float dyBlackToTop;
+        private final float dyBlackToTop;
 
         /**
          * Aktueller Farbwert für die Darstellung des Dreiecks.
          */
-        private int hue;
+        private final int hue;
 
         /**
          * Cache für ein Berechnungszwischenergebnis, welches häufiger verwendet wird.
          */
-        private float numerator;
+        private final float numerator;
 
         /**
          * Cache für das Raster, falls dieses mehrfach nachgefragt wird.
@@ -184,32 +184,32 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
         /**
          * Position der Farbigen Ecke des Dreiecks.
          */
-        private Point2D top;
+        private final Point2D top;
 
         /**
          * Differenz der x-Koordinaten von der farbigen zur weißen Ecke.
          */
-        private float dxTopToWhite;
+        private final float dxTopToWhite;
 
         /**
          * Differenz der y-Koordinate von der farbigen zur weißen Ecke.
          */
-        private float dyTopToWhite;
+        private final float dyTopToWhite;
 
         /**
          * Position der weißen Ecke des Dreiecks.
          */
-        private Point2D white;
+        private final Point2D white;
 
         /**
          * Verbindungslinie von der schwarzen zur Wheißen Ecke.
          */
-        private Line2D lineBlackToWhite;
+        private final Line2D lineBlackToWhite;
 
         /**
          * Verbindungslinie von der farigen zur weißen Ecke.
          */
-        private Line2D lineTopToWhite;
+        private final Line2D lineTopToWhite;
 
         /**
          * Erstell ein neues Farbverlaufsobjekt für das angegebene Dreieck und den gewünschten HSV-Farbwert.
@@ -540,6 +540,7 @@ public class DefaultColorCircleUI extends AbstractColorCircleUI {
         final int anz = 180;
         final float eps = 360f / anz * 0.1f;
         for (int i = 0; i < anz; i++) {
+            @SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
             final Arc2D arc = new Arc2D.Float(center.x - radius, center.y - radius, size, size, -i * 360 / anz + 90, 360
                     / anz + eps, Arc2D.PIE);
             g2d.setColor(ColorCircle.getColorByHsv(i * 360 / anz, 255, 255));

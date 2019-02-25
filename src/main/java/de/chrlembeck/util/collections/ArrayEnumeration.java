@@ -10,6 +10,7 @@ import java.util.NoSuchElementException;
  * @param <T>
  *            Typ der in dem Array enthaltenen Daten.
  */
+@SuppressWarnings("PMD.ReplaceEnumerationWithIterator")
 public class ArrayEnumeration<T> implements Enumeration<T> {
 
     /**

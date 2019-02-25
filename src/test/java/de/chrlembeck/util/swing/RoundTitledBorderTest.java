@@ -44,6 +44,7 @@ public class RoundTitledBorderTest {
          *            Border, dessen Titel auf Mausklicks überprüft werden soll.
          */
         public MyMouseAdapter(final RoundTitledBorder border) {
+            super();
             this.border = border;
         }
 
